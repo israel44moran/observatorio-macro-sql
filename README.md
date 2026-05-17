@@ -2,6 +2,8 @@
 
 Análisis de **65 años de indicadores económicos oficiales** de México (1960–2024) construido **completamente en SQL** sobre DuckDB. Cero pandas, cero notebooks. Quince queries con CTEs, window functions, agregaciones jerárquicas, pivots y self-joins, cada una con un objetivo de negocio claro.
 
+> **Pipeline automatizado**: este observatorio se mantiene solo. Cada lunes un workflow de GitHub Actions baja datos frescos del Banco Mundial, recalcula todo y commitea las actualizaciones. Documentación del pipeline en **[`PIPELINE.md`](PIPELINE.md)**.
+
 ## Qué problema resuelve
 
 La pregunta detrás del proyecto: **¿cómo se ve la economía mexicana en los últimos 65 años?** ¿En qué sexenio se devaluó más fuerte el peso? ¿Cuál fue el peor año macroeconómico? ¿Cómo se comportó el PIB antes y después del TLCAN, del Tequilazo, del COVID? ¿Hay correlación entre desempleo e inflación?
