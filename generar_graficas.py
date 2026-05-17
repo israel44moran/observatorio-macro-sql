@@ -41,9 +41,18 @@ def aplicar_estilo(ax, fig):
     ax.tick_params(colors=COOL, which="both", labelsize=9)
     ax.xaxis.label.set_color(MUTED)
     ax.yaxis.label.set_color(MUTED)
-    ax.title.set_color(CREAM)
+    # Forzamos color del titulo otra vez por si matplotlib lo resetea
+    if ax.get_title():
+        ax.set_title(ax.get_title(), color=CREAM,
+                     fontsize=14, pad=20, loc="left", weight="medium")
     ax.grid(axis="y", color=BORDER, linewidth=0.5, linestyle="-", alpha=0.5)
     ax.set_axisbelow(True)
+
+
+def titulo(ax, texto: str):
+    """Helper para setear titulo siempre con el color y estilo correctos."""
+    ax.set_title(texto, color=CREAM, fontsize=14,
+                 pad=20, loc="left", weight="medium")
 
 
 def grafica_1_inflacion_sexenal(con):
@@ -52,15 +61,15 @@ def grafica_1_inflacion_sexenal(con):
     WITH s AS (
         SELECT
             CASE
-                WHEN anio BETWEEN 1970 AND 1976 THEN '1970-1976 Echeverria'
-                WHEN anio BETWEEN 1977 AND 1982 THEN '1977-1982 Lopez Portillo'
+                WHEN anio BETWEEN 1970 AND 1976 THEN '1970-1976 Echeverría'
+                WHEN anio BETWEEN 1977 AND 1982 THEN '1977-1982 López Portillo'
                 WHEN anio BETWEEN 1983 AND 1988 THEN '1983-1988 De la Madrid'
                 WHEN anio BETWEEN 1989 AND 1994 THEN '1989-1994 Salinas'
                 WHEN anio BETWEEN 1995 AND 2000 THEN '1995-2000 Zedillo'
                 WHEN anio BETWEEN 2001 AND 2006 THEN '2001-2006 Fox'
-                WHEN anio BETWEEN 2007 AND 2012 THEN '2007-2012 Calderon'
-                WHEN anio BETWEEN 2013 AND 2018 THEN '2013-2018 Pena Nieto'
-                WHEN anio BETWEEN 2019 AND 2024 THEN '2019-2024 Lopez Obrador'
+                WHEN anio BETWEEN 2007 AND 2012 THEN '2007-2012 Calderón'
+                WHEN anio BETWEEN 2013 AND 2018 THEN '2013-2018 Peña Nieto'
+                WHEN anio BETWEEN 2019 AND 2024 THEN '2019-2024 López Obrador'
             END AS sexenio, inflacion_pct
         FROM indicadores_wide
         WHERE inflacion_pct IS NOT NULL AND anio BETWEEN 1970 AND 2024
@@ -80,9 +89,8 @@ def grafica_1_inflacion_sexenal(con):
     ax.set_yticklabels(labels, color=CREAM, fontsize=10)
     ax.set_xscale("log")
     ax.xaxis.set_major_formatter(mtick.FuncFormatter(lambda v, _: f"{v:,.0f}%"))
-    ax.set_xlabel("Inflacion acumulada (escala logaritmica)", fontsize=9)
-    ax.set_title("Inflacion acumulada por sexenio en Mexico  |  1970 - 2024",
-                 fontsize=14, pad=20, loc="left", weight="medium")
+    ax.set_xlabel("Inflación acumulada (escala logarítmica)", fontsize=9)
+    titulo(ax, "Inflación acumulada por sexenio en México  |  1970 – 2024")
 
     for i, (b, v) in enumerate(zip(bars, valores)):
         ax.text(v * 1.1, i, f"{v:,.0f}%", color=CREAM, fontsize=10, va="center")
@@ -115,8 +123,8 @@ def grafica_2_pib_con_promedios(con):
     ax.axhline(0, color=COOL, linewidth=0.8, linestyle="--", alpha=0.6)
     ax.plot(anios, pib, color=AMBER, linewidth=1, alpha=0.5, label="Crecimiento anual")
     ax.fill_between(anios, pib, 0, where=[p < 0 for p in pib],
-                    color=RED, alpha=0.25, label="Anios recesivos")
-    ax.plot(anios, prom5, color=CREAM, linewidth=2.5, label="Promedio movil 5 anios")
+                    color=RED, alpha=0.25, label="Años recesivos")
+    ax.plot(anios, prom5, color=CREAM, linewidth=2.5, label="Promedio móvil 5 años")
 
     eventos = [
         (1982, "Crisis de\nla deuda"),
@@ -134,9 +142,8 @@ def grafica_2_pib_con_promedios(con):
                     bbox=dict(boxstyle="round,pad=0.3", facecolor=SURFACE,
                               edgecolor=AMBER_DIM, alpha=0.95))
 
-    ax.set_title("Crecimiento del PIB de Mexico  |  promedio movil 5 anios y eventos macro",
-                 fontsize=14, pad=20, loc="left", weight="medium")
-    ax.set_xlabel("Anio", fontsize=9)
+    titulo(ax, "Crecimiento del PIB de México  |  promedio móvil 5 años y eventos macro")
+    ax.set_xlabel("Año", fontsize=9)
     ax.set_ylabel("Crecimiento del PIB (%)", fontsize=9)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
     leg = ax.legend(loc="lower left", frameon=False, fontsize=9, labelcolor=CREAM)
@@ -171,9 +178,8 @@ def grafica_3_recesiones(con):
             ax.text(a, p - 0.5, f"{p:.1f}", color=RED, fontsize=8,
                     ha="center", va="top", weight="medium")
 
-    ax.set_title("Recesiones de Mexico  |  anios con crecimiento del PIB negativo destacados en rojo",
-                 fontsize=14, pad=20, loc="left", weight="medium")
-    ax.set_xlabel("Anio", fontsize=9)
+    titulo(ax, "Recesiones de México  |  años con crecimiento del PIB negativo destacados en rojo")
+    ax.set_xlabel("Año", fontsize=9)
     ax.set_ylabel("Crecimiento del PIB (%)", fontsize=9)
     ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
     aplicar_estilo(ax, fig)
@@ -198,7 +204,7 @@ def grafica_4_eventos_antes_despues(con):
     """
     data = con.execute(sql).fetchall()
     data = [r for r in data if r[2] is not None and r[3] is not None]
-    labels = [f"{r[0]}  {r[1][:30]}" for r in data]
+    labels = [f"{r[0]}  {r[1][:50]}" for r in data]
     antes = [r[2] for r in data]
     despues = [r[3] for r in data]
 
@@ -212,14 +218,13 @@ def grafica_4_eventos_antes_despues(con):
         ax.scatter(antes[i], i, color=COOL, s=120, zorder=3,
                    edgecolor=INK, linewidth=1.5, label="Antes" if i == 0 else "")
         ax.scatter(despues[i], i, color=color_linea, s=140, zorder=4,
-                   edgecolor=INK, linewidth=1.5, label="Despues" if i == 0 else "")
+                   edgecolor=INK, linewidth=1.5, label="Después" if i == 0 else "")
 
     ax.axvline(0, color=COOL, linewidth=0.8, linestyle="--", alpha=0.5)
     ax.set_yticks(y)
     ax.set_yticklabels(labels, color=CREAM, fontsize=9)
-    ax.set_xlabel("PIB promedio (%) en ventana de 5 anios", fontsize=9)
-    ax.set_title("Crecimiento del PIB  5 anos antes vs 5 anos despues  de cada evento macro",
-                 fontsize=14, pad=20, loc="left", weight="medium")
+    ax.set_xlabel("PIB promedio (%) en ventana de 5 años", fontsize=9)
+    titulo(ax, "Crecimiento del PIB  5 años antes vs 5 años después  de cada evento macro")
     ax.legend(loc="lower right", frameon=False, labelcolor=CREAM, fontsize=9)
     ax.xaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
     ax.invert_yaxis()

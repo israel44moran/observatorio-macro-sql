@@ -47,20 +47,20 @@ ORDER BY c.columna;
 
 | indicador | unidad | anio_ultimo | ultimo_valor | cambio_10a |
 | --- | --- | --- | --- | --- |
-| Emisiones CO2 per capita | toneladas | 2024 | 3.64 | -10.2 % |
+| Emisiones CO₂ per cápita | toneladas | 2024 | 3.64 | -10.2 % |
 | Tasa de desempleo | % de la PEA | 2025 | 2.67 | -38.0 % |
 | Deuda externa | USD corrientes | 2024 | 591.26 bn | 9.9 % |
 | Exportaciones | USD corrientes | 2024 | 681.35 bn | 64.4 % |
-| Gasto publico en educacion | % del PIB | 2022 | 4.06 | -19.6 % |
+| Gasto público en educación | % del PIB | 2022 | 4.06 | -19.6 % |
 | Gasto en salud | % del PIB | 2023 | 5.5 | -0.4 % |
-| Indice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
-| Inversion extranjera directa | USD corrientes | 2024 | 45.47 bn | 25.4 % |
+| Índice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
+| Inversión extranjera directa | USD corrientes | 2024 | 45.47 bn | 25.4 % |
 | Importaciones | USD corrientes | 2024 | 703.29 bn | 59.9 % |
-| Inflacion | % anual | 2024 | 4.72 | 73.6 % |
+| Inflación | % anual | 2024 | 4.72 | 73.6 % |
 | Crecimiento del PIB | % anual | 2024 | 1.43 | -47.2 % |
 | PIB nominal | USD corrientes | 2024 | 1856.37 bn | 53.0 % |
-| PIB per capita | USD corrientes | 2024 | 14186.0 | 41.6 % |
-| Poblacion | habitantes | 2024 | 130.86 mn | 8.1 % |
-| Tasa de interes real | % anual | 2024 | 6.02 | 2808.8 % |
+| PIB per cápita | USD corrientes | 2024 | 14186.0 | 41.6 % |
+| Población | habitantes | 2024 | 130.86 mn | 8.1 % |
+| Tasa de interés real | % anual | 2024 | 6.02 | 2808.8 % |
 
 ---

@@ -44,7 +44,7 @@ ORDER BY c.anio;
 | 1983 | -4.62 | -0.05 | 3.51 | Recesion encadenada | - |
 | 1986 | -3.93 | 1.92 | 2.06 | Recesion aislada | - |
 | 1995 | -5.91 | 4.39 | 6.22 | Recuperacion fuerte (rebote) | Crisis del Tequila |
-| 2001 | -0.45 | 5.03 | -0.24 | Continuara cayendo | Recesion EUA post-9/11 |
+| 2001 | -0.45 | 5.03 | -0.24 | Continuara cayendo | Recesión EUA post-9/11 |
 | 2002 | -0.24 | -0.45 | 1.19 | Recesion encadenada | - |
 | 2009 | -6.3 | 0.94 | 4.97 | Recuperacion fuerte (rebote) | Crisis financiera global |
 | 2019 | -0.39 | 1.97 | -8.35 | Continuara cayendo | - |

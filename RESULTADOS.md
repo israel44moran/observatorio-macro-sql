@@ -112,15 +112,15 @@ inflacion_acumulada = (1 + i1) * (1 + i2) * ... * (1 + i6) - 1
 WITH inflacion_por_sexenio AS (
     SELECT
         CASE
-            WHEN anio BETWEEN 1970 AND 1976 THEN '1970-1976  Echeverria'
-            WHEN anio BETWEEN 1977 AND 1982 THEN '1977-1982  Lopez Portillo'
+            WHEN anio BETWEEN 1970 AND 1976 THEN '1970-1976  Echeverría'
+            WHEN anio BETWEEN 1977 AND 1982 THEN '1977-1982  López Portillo'
             WHEN anio BETWEEN 1983 AND 1988 THEN '1983-1988  De la Madrid'
             WHEN anio BETWEEN 1989 AND 1994 THEN '1989-1994  Salinas'
             WHEN anio BETWEEN 1995 AND 2000 THEN '1995-2000  Zedillo'
             WHEN anio BETWEEN 2001 AND 2006 THEN '2001-2006  Fox'
-            WHEN anio BETWEEN 2007 AND 2012 THEN '2007-2012  Calderon'
-            WHEN anio BETWEEN 2013 AND 2018 THEN '2013-2018  Pena Nieto'
-            WHEN anio BETWEEN 2019 AND 2024 THEN '2019-2024  Lopez Obrador'
+            WHEN anio BETWEEN 2007 AND 2012 THEN '2007-2012  Calderón'
+            WHEN anio BETWEEN 2013 AND 2018 THEN '2013-2018  Peña Nieto'
+            WHEN anio BETWEEN 2019 AND 2024 THEN '2019-2024  López Obrador'
         END                              AS sexenio,
         anio,
         inflacion_pct
@@ -145,15 +145,15 @@ ORDER BY sexenio;
 
 | sexenio | anios_con_dato | inflacion_promedio_anual | inflacion_acumulada_pct | peor_anio_pct | mejor_anio_pct |
 | --- | --- | --- | --- | --- | --- |
-| 1970-1976  Echeverria | 7 | 11.72 | 114.7 | 23.78 | 4.94 |
-| 1977-1982  Lopez Portillo | 6 | 29.65 | 360.3 | 58.91 | 17.46 |
+| 1970-1976  Echeverría | 7 | 11.72 | 114.7 | 23.78 | 4.94 |
+| 1977-1982  López Portillo | 6 | 29.65 | 360.3 | 58.91 | 17.46 |
 | 1983-1988  De la Madrid | 6 | 92.88 | 4,771.7 | 131.83 | 57.75 |
 | 1989-1994  Salinas | 6 | 16.92 | 152.8 | 26.65 | 6.97 |
 | 1995-2000  Zedillo | 6 | 22 | 223.8 | 35 | 9.49 |
 | 2001-2006  Fox | 6 | 4.71 | 31.8 | 6.37 | 3.63 |
-| 2007-2012  Calderon | 6 | 4.34 | 29 | 5.3 | 3.41 |
-| 2013-2018  Pena Nieto | 6 | 4.05 | 26.9 | 6.04 | 2.72 |
-| 2019-2024  Lopez Obrador | 6 | 5.14 | 35 | 7.9 | 3.4 |
+| 2007-2012  Calderón | 6 | 4.34 | 29 | 5.3 | 3.41 |
+| 2013-2018  Peña Nieto | 6 | 4.05 | 26.9 | 6.04 | 2.72 |
+| 2019-2024  López Obrador | 6 | 5.14 | 35 | 7.9 | 3.4 |
 
 ---
 
@@ -313,7 +313,7 @@ ORDER BY c.anio;
 | 1983 | -4.62 | -0.05 | 3.51 | Recesion encadenada | - |
 | 1986 | -3.93 | 1.92 | 2.06 | Recesion aislada | - |
 | 1995 | -5.91 | 4.39 | 6.22 | Recuperacion fuerte (rebote) | Crisis del Tequila |
-| 2001 | -0.45 | 5.03 | -0.24 | Continuara cayendo | Recesion EUA post-9/11 |
+| 2001 | -0.45 | 5.03 | -0.24 | Continuara cayendo | Recesión EUA post-9/11 |
 | 2002 | -0.24 | -0.45 | 1.19 | Recesion encadenada | - |
 | 2009 | -6.3 | 0.94 | 4.97 | Recuperacion fuerte (rebote) | Crisis financiera global |
 | 2019 | -0.39 | 1.97 | -8.35 | Continuara cayendo | - |
@@ -522,17 +522,17 @@ ORDER BY e.anio;
 
 | anio_evento | evento | categoria | pib_prom_5a_antes | pib_prom_5a_despues | inflacion_prom_5a_antes | inflacion_prom_5a_despues |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1976 | Devaluacion del peso | crisis | 6.27 | 8.08 | 12.24 | 23.8 |
+| 1976 | Devaluación del peso | crisis | 6.27 | 8.08 | 12.24 | 23.8 |
 | 1982 | Crisis de la deuda externa | crisis | 8.08 | -0.21 | 23.8 | 88.63 |
 | 1988 | Inicio del periodo de Salinas | regimen | -0.21 | 3.86 | 88.63 | 18.92 |
 | 1994 | Entrada en vigor del TLCAN | tratado | 3.86 | 3.29 | 18.92 | 24.5 |
 | 1995 | Crisis del Tequila | crisis | 4.01 | 5.48 | 16.31 | 19.4 |
-| 2000 | Alternancia politica: Fox / PAN | regimen | 3.29 | 1.24 | 24.5 | 4.92 |
-| 2001 | Recesion EUA post-9/11 | externo | 5.48 | 2.29 | 19.4 | 4.38 |
-| 2006 | Inicio periodo de Calderon | regimen | 1.24 | 1.03 | 4.92 | 4.39 |
+| 2000 | Alternancia política: Fox / PAN | regimen | 3.29 | 1.24 | 24.5 | 4.92 |
+| 2001 | Recesión EUA post-9/11 | externo | 5.48 | 2.29 | 19.4 | 4.38 |
+| 2006 | Inicio periodo de Calderón | regimen | 1.24 | 1.03 | 4.92 | 4.39 |
 | 2009 | Crisis financiera global | crisis | 2.7 | 3.06 | 4.28 | 3.9 |
-| 2012 | Inicio periodo de Pena Nieto | regimen | 1.03 | 1.94 | 4.39 | 3.88 |
-| 2018 | Inicio periodo de Lopez Obrador (AMLO) | regimen | 1.94 | 0.87 | 3.88 | 5.23 |
+| 2012 | Inicio periodo de Peña Nieto | regimen | 1.03 | 1.94 | 4.39 | 3.88 |
+| 2018 | Inicio periodo de López Obrador (AMLO) | regimen | 1.94 | 0.87 | 3.88 | 5.23 |
 | 2020 | Pandemia COVID-19 | crisis | 1.59 | 3.63 | 4.02 | 5.96 |
 | 2024 | Inicio periodo de Sheinbaum | regimen | 0.87 | — | 5.23 | — |
 
@@ -656,21 +656,21 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| PIB per capita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Inflacion | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| Población | habitantes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| Exportaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | PIB nominal | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Importaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Poblacion | habitantes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Exportaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Crecimiento del PIB | % anual | 1961 | 2024 | 64 anios | 64 | 100.0 % | OK |
 | Deuda externa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
-| Emisiones CO2 per capita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
-| Inversion extranjera directa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
+| Emisiones CO₂ per cápita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
+| Inversión extranjera directa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Tasa de desempleo | % de la PEA | 1991 | 2025 | 35 anios | 35 | 100.0 % | OK |
-| Tasa de interes real | % anual | 1993 | 2024 | 32 anios | 32 | 100.0 % | OK |
+| Tasa de interés real | % anual | 1993 | 2024 | 32 anios | 32 | 100.0 % | OK |
 | Gasto en salud | % del PIB | 2000 | 2023 | 24 anios | 24 | 100.0 % | OK |
-| Gasto publico en educacion | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
-| Indice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
+| Gasto público en educación | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
+| Índice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
 
 ---
 
@@ -832,20 +832,20 @@ ORDER BY c.columna;
 
 | indicador | unidad | anio_ultimo | ultimo_valor | cambio_10a |
 | --- | --- | --- | --- | --- |
-| Emisiones CO2 per capita | toneladas | 2024 | 3.64 | -10.2 % |
+| Emisiones CO₂ per cápita | toneladas | 2024 | 3.64 | -10.2 % |
 | Tasa de desempleo | % de la PEA | 2025 | 2.67 | -38.0 % |
 | Deuda externa | USD corrientes | 2024 | 591.26 bn | 9.9 % |
 | Exportaciones | USD corrientes | 2024 | 681.35 bn | 64.4 % |
-| Gasto publico en educacion | % del PIB | 2022 | 4.06 | -19.6 % |
+| Gasto público en educación | % del PIB | 2022 | 4.06 | -19.6 % |
 | Gasto en salud | % del PIB | 2023 | 5.5 | -0.4 % |
-| Indice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
-| Inversion extranjera directa | USD corrientes | 2024 | 45.47 bn | 25.4 % |
+| Índice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
+| Inversión extranjera directa | USD corrientes | 2024 | 45.47 bn | 25.4 % |
 | Importaciones | USD corrientes | 2024 | 703.29 bn | 59.9 % |
-| Inflacion | % anual | 2024 | 4.72 | 73.6 % |
+| Inflación | % anual | 2024 | 4.72 | 73.6 % |
 | Crecimiento del PIB | % anual | 2024 | 1.43 | -47.2 % |
 | PIB nominal | USD corrientes | 2024 | 1856.37 bn | 53.0 % |
-| PIB per capita | USD corrientes | 2024 | 14186.0 | 41.6 % |
-| Poblacion | habitantes | 2024 | 130.86 mn | 8.1 % |
-| Tasa de interes real | % anual | 2024 | 6.02 | 2808.8 % |
+| PIB per cápita | USD corrientes | 2024 | 14186.0 | 41.6 % |
+| Población | habitantes | 2024 | 130.86 mn | 8.1 % |
+| Tasa de interés real | % anual | 2024 | 6.02 | 2808.8 % |
 
 ---
