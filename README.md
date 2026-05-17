@@ -210,6 +210,12 @@ Tiempo total en una laptop normal: ~15 segundos.
 - **Agregar una query nueva**: crea `queries/16_lo_que_sea.sql` con el header documentado (líneas con `--` al inicio). `correr_analisis.py` la detecta automáticamente y la incluye en `RESULTADOS.md`.
 - **Cambiar a Postgres o SQLite**: el SQL es ANSI 2023 estándar. La única función específica de DuckDB que uso es `DISTINCT ON` (también de Postgres). En SQLite habría que reemplazar `DISTINCT ON` por un `ROW_NUMBER() = 1` en subquery y verificar que tu versión soporta window functions (SQLite ≥ 3.25).
 
+## Quieres practicar SQL sobre estos mismos datos
+
+Hay un repositorio separado con **30 ejercicios de SQL graduados** (fácil → intermedio → avanzado) que usan la misma base del observatorio como playground. Pensado como material de práctica para entrevistas técnicas de Data Analyst.
+
+→ <https://github.com/israel44moran/30-ejercicios-sql>
+
 ## Posibles extensiones
 
 Ideas para una segunda fase:
