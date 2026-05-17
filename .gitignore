@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# IDE y SO
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+
+# DuckDB binario: regenerable en segundos desde el CSV.
+# Mantengo el CSV (datos de origen, ~11 KB) y los resultados markdown
+# en el repo para que se vean sin tener que correr nada.
+analisis.duckdb
+analisis.duckdb.wal
