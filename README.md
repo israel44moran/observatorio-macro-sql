@@ -83,7 +83,35 @@ Disponer del mismo dato en `wide` y `long` no es redundancia — cada forma sirv
 | 14 | Volatilidad móvil del PIB | `STDDEV() OVER` en ventana de 5 años |
 | 15 | Ficha resumen del país | `DISTINCT ON`, subqueries anidadas, formato dinámico con `CASE` |
 
-## Resultados destacados
+## Resultados visuales
+
+Las gráficas se generan ejecutando `python generar_graficas.py` y son **producto secundario** de las queries: el SQL produce los datos, matplotlib los visualiza con la paleta del portafolio. El código está en `generar_graficas.py` y los PNG quedan en `graficas/`.
+
+### 1. Inflación acumulada por sexenio (escala logarítmica)
+
+![Inflación acumulada por sexenio](graficas/01_inflacion_sexenal.png)
+
+El sexenio de De la Madrid acumuló **4,771%** de inflación — los precios se multiplicaron por ~48 en seis años. El control monetario empezó realmente con Zedillo y se consolidó con Fox.
+
+### 2. Crecimiento del PIB con promedio móvil de 5 años
+
+![PIB con promedio móvil y eventos macro](graficas/02_pib_promedios_moviles.png)
+
+La línea blanca (promedio móvil) revela la tendencia estructural por debajo del ruido anual. Los puntos rojos marcan los cuatro eventos que más golpearon a la economía mexicana en 50 años.
+
+### 3. Años recesivos detectados automáticamente
+
+![Recesiones](graficas/03_recesiones.png)
+
+Solo 7 años desde 1970 tuvieron PIB negativo. Cada barra roja la detectó una query con `LAG()` que clasifica el patrón ("recesión encadenada", "rebote fuerte", etc.).
+
+### 4. PIB antes vs después de cada evento macro
+
+![Antes y después](graficas/04_eventos_antes_despues.png)
+
+Cada línea horizontal es un evento. Punto gris = PIB promedio en los 5 años previos; punto verde/rojo = PIB promedio en los 5 años siguientes. Verde significa recuperación; rojo, deterioro.
+
+## Resultados destacados (tablas)
 
 > **El reporte completo con las 15 queries y sus tablas está en [`RESULTADOS.md`](RESULTADOS.md)** (33 KB de SQL + tablas). Aquí van 3 muestras representativas.
 
@@ -141,20 +169,25 @@ Proyecto 9 - Observatorio macroeconomico SQL/
 ├── descargar_datos.py       # Descarga 15 indicadores del Banco Mundial
 ├── cargar_db.py             # Crea schema DuckDB y carga datos
 ├── correr_analisis.py       # Ejecuta los 15 SQL y genera reportes
+├── generar_graficas.py      # Produce 4 PNG con la paleta del portafolio
 ├── queries/                 # Los 15 archivos .sql, ordenados temáticamente
 │   ├── 01_evolucion_pib_yoy.sql
 │   ├── 02_top_anios_inflacion.sql
-│   ├── 03_inflacion_acumulada_sexenal.sql
-│   └── ... 12 más
+│   └── ... 13 más
 ├── resultados/              # Markdown individual por query
 │   ├── 01_evolucion_pib_yoy.md
 │   └── ...
+├── graficas/                # PNG con paleta dark + ámbar
+│   ├── 01_inflacion_sexenal.png
+│   ├── 02_pib_promedios_moviles.png
+│   ├── 03_recesiones.png
+│   └── 04_eventos_antes_despues.png
 ├── data/
 │   └── wb_mexico_indicadores.csv  # Generado por descargar_datos.py
-├── analisis.duckdb          # Base de datos final
+├── analisis.duckdb          # Base de datos final (gitignored, regenerable)
 ├── RESULTADOS.md            # Reporte consolidado (las 15 queries + tablas)
 ├── README.md                # Este archivo
-└── requirements.txt         # Solo: duckdb
+└── requirements.txt         # duckdb + matplotlib
 ```
 
 ## Cómo correrlo
@@ -164,9 +197,10 @@ pip install -r requirements.txt
 python descargar_datos.py    # 1) baja los 15 indicadores del Banco Mundial
 python cargar_db.py          # 2) crea analisis.duckdb con 4 tablas + 2 vistas
 python correr_analisis.py    # 3) ejecuta los 15 .sql y regenera RESULTADOS.md
+python generar_graficas.py   # 4) produce las 4 PNG de graficas/
 ```
 
-Tiempo total en una laptop normal: ~10 segundos.
+Tiempo total en una laptop normal: ~15 segundos.
 
 ## Cómo modificar / extender
 
