@@ -23,17 +23,26 @@ GROUP BY ROLLUP(FLOOR(anio / 10) * 10)
 ORDER BY decada NULLS LAST;
 ```
 
-**Resultado** — 8 filas:
+**Resultado** — 1 filas:
 
-| decada | pib_crecimiento_prom | inflacion_prom | desempleo_prom | ied_promedio_bn_usd | ratio_export_import | poblacion_fin_decada_mn | anios_con_datos |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 1960.0s | 6.84 | 2.72 | — | — | 0.794 | 49.2 | 10 |
-| 1970.0s | 6.43 | 14.68 | — | 0.53 | 0.871 | 65.6 | 10 |
-| 1980.0s | 2.21 | 69.05 | — | 2.39 | 1.326 | 81.2 | 10 |
-| 1990.0s | 3.65 | 20.41 | 4.15 | 8.54 | 0.918 | 97.1 | 10 |
-| 2000.0s | 1.27 | 5.21 | 3.57 | 23.96 | 0.938 | 112 | 10 |
-| 2010.0s | 2.33 | 3.96 | 4.34 | 32.81 | 0.959 | 125.8 | 10 |
-| 2020.0s | 1.24 | 5.45 | 3.31 | 36.51 | 0.973 | 130.9 | 6 |
-| — | 3.54 | 18.27 | 3.89 | 15.72 | 0.968 | 130.9 | 66 |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types 'avg(VARCHAR)'. You might need to add explicit type casts.
+	Candidate functions:
+	avg(DECIMAL) -> DECIMAL
+	avg(SMALLINT) -> DOUBLE
+	avg(INTEGER) -> DOUBLE
+	avg(BIGINT) -> DOUBLE
+	avg(HUGEINT) -> DOUBLE
+	avg(INTERVAL) -> INTERVAL
+	avg(DOUBLE) -> DOUBLE
+	avg(TIMESTAMP) -> TIMESTAMP
+	avg(TIMESTAMP WITH TIME ZONE) -> TIMESTAMP WITH TIME ZONE
+	avg(TIME) -> TIME
+	avg(TIME WITH TIME ZONE) -> TIME WITH TIME ZONE
+
+
+LINE 6:     ROUND(AVG(ied_usd) / 1e9,       2)                           ...
+                  ^ |
 
 ---
