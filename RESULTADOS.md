@@ -392,27 +392,18 @@ GROUP BY ROLLUP(FLOOR(anio / 10) * 10)
 ORDER BY decada NULLS LAST;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 8 filas:
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types 'avg(VARCHAR)'. You might need to add explicit type casts.
-	Candidate functions:
-	avg(DECIMAL) -> DECIMAL
-	avg(SMALLINT) -> DOUBLE
-	avg(INTEGER) -> DOUBLE
-	avg(BIGINT) -> DOUBLE
-	avg(HUGEINT) -> DOUBLE
-	avg(INTERVAL) -> INTERVAL
-	avg(DOUBLE) -> DOUBLE
-	avg(TIMESTAMP) -> TIMESTAMP
-	avg(TIMESTAMP WITH TIME ZONE) -> TIMESTAMP WITH TIME ZONE
-	avg(TIME) -> TIME
-	avg(TIME WITH TIME ZONE) -> TIME WITH TIME ZONE
-
-
-LINE 6:     ROUND(AVG(ied_usd) / 1e9,       2)                           ...
-                  ^ |
+| decada | pib_crecimiento_prom | inflacion_prom | desempleo_prom | ied_promedio_bn_usd | ratio_export_import | poblacion_fin_decada_mn | anios_con_datos |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1960.0s | 6.84 | 2.72 | — | — | 0.794 | 49.2 | 10 |
+| 1970.0s | 6.43 | 14.68 | — | 0.53 | 0.871 | 65.6 | 10 |
+| 1980.0s | 2.21 | 69.05 | — | 2.39 | 1.326 | 81.2 | 10 |
+| 1990.0s | 3.65 | 20.41 | 4.15 | 8.54 | 0.918 | 97.1 | 10 |
+| 2000.0s | 1.27 | 5.21 | 3.57 | 23.96 | 0.938 | 112 | 10 |
+| 2010.0s | 2.33 | 3.96 | 4.34 | 32.81 | 0.959 | 125.8 | 10 |
+| 2020.0s | 1.24 | 5.45 | 3.31 | 36.51 | 0.973 | 130.9 | 6 |
+| — | 3.54 | 18.27 | 3.89 | 15.72 | 0.968 | 130.9 | 66 |
 
 ---
 
@@ -600,19 +591,22 @@ ORDER BY score
 LIMIT 12;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 12 filas:
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '/(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
-	Candidate functions:
-	/(FLOAT, FLOAT) -> FLOAT
-	/(DOUBLE, DOUBLE) -> DOUBLE
-	/(INTERVAL, DOUBLE) -> INTERVAL
-
-
-LINE 7:         ROUND(ied_usd / 1e9, 1)       AS ied_bn,
-                              ^ |
+| anio | pib_pct | inflacion | desempleo | ied_bn | score | cuartil_global | clasificacion |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 2024 | 1.43 | 4.72 | 2.68 | 45.5 | 46 | 1 | Excelente |
+| 2022 | 3.71 | 7.9 | 3.26 | 39.2 | 47 | 1 | Excelente |
+| 2006 | 4.81 | 3.63 | 3.57 | 22.1 | 48 | 1 | Excelente |
+| 2016 | 1.77 | 2.82 | 3.85 | 38.9 | 49 | 1 | Excelente |
+| 2015 | 2.7 | 2.72 | 4.31 | 36.3 | 49 | 1 | Excelente |
+| 2023 | 3.35 | 5.53 | 2.77 | 30.7 | 51 | 1 | Excelente |
+| 2018 | 1.97 | 4.9 | 3.28 | 37.9 | 53 | 1 | Excelente |
+| 2021 | 6.05 | 5.69 | 4.02 | 35.6 | 54 | 1 | Excelente |
+| 2007 | 2.08 | 3.97 | 3.63 | 31 | 56 | 1 | Excelente |
+| 2000 | 5.03 | 9.49 | 2.65 | 18.4 | 57 | 2 | Bueno |
+| 2010 | 4.97 | 4.16 | 5.3 | 30.5 | 61 | 2 | Bueno |
+| 2005 | 2.11 | 3.99 | 3.56 | 25.2 | 61 | 2 | Bueno |
 
 ---
 
@@ -662,21 +656,21 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | PIB nominal | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Exportaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Importaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Población | habitantes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Crecimiento del PIB | % anual | 1961 | 2024 | 64 anios | 64 | 100.0 % | OK |
 | Deuda externa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Emisiones CO₂ per cápita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
+| Inversión extranjera directa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Tasa de desempleo | % de la PEA | 1991 | 2025 | 35 anios | 35 | 100.0 % | OK |
 | Tasa de interés real | % anual | 1993 | 2024 | 32 anios | 32 | 100.0 % | OK |
 | Gasto en salud | % del PIB | 2000 | 2023 | 24 anios | 24 | 100.0 % | OK |
-| Gasto público en educación | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
 | Índice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
-| Inversión extranjera directa | USD corrientes | — | — | — | 1 | — | Serie corta o muy fragmentada |
+| Gasto público en educación | % del PIB | — | — | — | 1 | — | Serie corta o muy fragmentada |
 
 ---
 
@@ -713,24 +707,25 @@ WHERE anio >= 1990
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 35 filas (mostrando primeras 15):
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types 'sum(VARCHAR)'. You might need to add explicit type casts.
-	Candidate functions:
-	sum(DECIMAL) -> DECIMAL
-	sum(BOOLEAN) -> HUGEINT
-	sum(SMALLINT) -> HUGEINT
-	sum(INTEGER) -> HUGEINT
-	sum(BIGINT) -> HUGEINT
-	sum(HUGEINT) -> HUGEINT
-	sum(DOUBLE) -> DOUBLE
-	sum(BIGNUM) -> BIGNUM
-
-
-LINE 6:         SUM(ied_usd) OVER (ORDER BY anio)              AS ied_acumu...
-                ^ |
+| anio | deuda_bn | ied_anual_bn | ied_acumulada_bn | ratio_deuda_ied_anual | ratio_deuda_ied_acumulada |
+| --- | --- | --- | --- | --- | --- |
+| 2024 | 591.3 | 45.5 | 864.8 | 13 | 0.68 |
+| 2023 | 596 | 30.7 | 819.4 | 19.4 | 0.73 |
+| 2022 | 585.9 | 39.2 | 788.7 | 14.9 | 0.74 |
+| 2021 | 601.5 | 35.6 | 749.5 | 16.9 | 0.8 |
+| 2020 | 616.7 | 31.5 | 713.9 | 19.5 | 0.86 |
+| 2019 | 617.4 | 29.9 | 682.3 | 20.6 | 0.9 |
+| 2018 | 602 | 37.9 | 652.4 | 15.9 | 0.92 |
+| 2017 | 578.6 | 33.1 | 614.5 | 17.5 | 0.94 |
+| 2016 | 544.8 | 38.9 | 581.4 | 14 | 0.94 |
+| 2015 | 538 | 36.3 | 542.5 | 14.8 | 0.99 |
+| 2014 | 544.2 | 28.4 | 506.2 | 19.1 | 1.08 |
+| 2013 | 504.1 | 50.9 | 477.8 | 9.9 | 1.06 |
+| 2012 | 433 | 18.2 | 426.8 | 23.7 | 1.01 |
+| 2011 | 351.7 | 23.9 | 408.6 | 14.7 | 0.86 |
+| 2010 | 312.3 | 30.5 | 384.7 | 10.2 | 0.81 |
 
 ---
 

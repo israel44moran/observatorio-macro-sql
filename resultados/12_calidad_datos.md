@@ -44,20 +44,20 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | PIB nominal | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Exportaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Importaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Población | habitantes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Crecimiento del PIB | % anual | 1961 | 2024 | 64 anios | 64 | 100.0 % | OK |
 | Deuda externa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Emisiones CO₂ per cápita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
+| Inversión extranjera directa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Tasa de desempleo | % de la PEA | 1991 | 2025 | 35 anios | 35 | 100.0 % | OK |
 | Tasa de interés real | % anual | 1993 | 2024 | 32 anios | 32 | 100.0 % | OK |
 | Gasto en salud | % del PIB | 2000 | 2023 | 24 anios | 24 | 100.0 % | OK |
-| Gasto público en educación | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
 | Índice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
-| Inversión extranjera directa | USD corrientes | — | — | — | 1 | — | Serie corta o muy fragmentada |
+| Gasto público en educación | % del PIB | — | — | — | 1 | — | Serie corta o muy fragmentada |
 
 ---
