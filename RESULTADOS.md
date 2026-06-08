@@ -656,21 +656,21 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| PIB nominal | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Exportaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Importaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Población | habitantes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| PIB nominal | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Crecimiento del PIB | % anual | 1961 | 2024 | 64 anios | 64 | 100.0 % | OK |
+| Inversión extranjera directa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Deuda externa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Emisiones CO₂ per cápita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
-| Inversión extranjera directa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Tasa de desempleo | % de la PEA | 1991 | 2025 | 35 anios | 35 | 100.0 % | OK |
 | Tasa de interés real | % anual | 1993 | 2024 | 32 anios | 32 | 100.0 % | OK |
 | Gasto en salud | % del PIB | 2000 | 2023 | 24 anios | 24 | 100.0 % | OK |
+| Gasto público en educación | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
 | Índice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
-| Gasto público en educación | % del PIB | — | — | — | 1 | — | Serie corta o muy fragmentada |
 
 ---
 
@@ -828,28 +828,24 @@ LEFT JOIN hace_10      h ON h.indicador = c.columna
 ORDER BY c.columna;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 15 filas:
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types 'abs(VARCHAR)'. You might need to add explicit type casts.
-	Candidate functions:
-	abs(TINYINT) -> TINYINT
-	abs(SMALLINT) -> SMALLINT
-	abs(INTEGER) -> INTEGER
-	abs(BIGINT) -> BIGINT
-	abs(HUGEINT) -> HUGEINT
-	abs(FLOAT) -> FLOAT
-	abs(DOUBLE) -> DOUBLE
-	abs(DECIMAL) -> DECIMAL
-	abs(UTINYINT) -> UTINYINT
-	abs(USMALLINT) -> USMALLINT
-	abs(UINTEGER) -> UINTEGER
-	abs(UBIGINT) -> UBIGINT
-	abs(UHUGEINT) -> UHUGEINT
-
-
-LINE 22:         WHEN ABS(u.valor) >= 1e9  THEN ROUND(u.valor / 1e9,  2)  || ...
-                      ^ |
+| indicador | unidad | anio_ultimo | ultimo_valor | cambio_10a |
+| --- | --- | --- | --- | --- |
+| Emisiones CO₂ per cápita | toneladas | 2024 | 3.64 | -10.2 % |
+| Tasa de desempleo | % de la PEA | 2025 | 2.67 | -38.0 % |
+| Deuda externa | USD corrientes | 2024 | 591.26 bn | 9.9 % |
+| Exportaciones | USD corrientes | 2024 | 681.35 bn | 64.4 % |
+| Gasto público en educación | % del PIB | 2022 | 4.06 | -19.6 % |
+| Gasto en salud | % del PIB | 2023 | 5.5 | -0.4 % |
+| Índice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
+| Inversión extranjera directa | USD corrientes | 2024 | 45.47 bn | 25.4 % |
+| Importaciones | USD corrientes | 2024 | 703.29 bn | 59.9 % |
+| Inflación | % anual | 2024 | 4.72 | 73.6 % |
+| Crecimiento del PIB | % anual | 2024 | 1.43 | -47.2 % |
+| PIB nominal | USD corrientes | 2024 | 1856.37 bn | 53.0 % |
+| PIB per cápita | USD corrientes | 2024 | 14186.0 | 41.6 % |
+| Población | habitantes | 2024 | 130.86 mn | 8.1 % |
+| Tasa de interés real | % anual | 2024 | 6.02 | 2808.8 % |
 
 ---
