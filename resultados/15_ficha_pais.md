@@ -43,24 +43,28 @@ LEFT JOIN hace_10      h ON h.indicador = c.columna
 ORDER BY c.columna;
 ```
 
-**Resultado** — 15 filas:
+**Resultado** — 1 filas:
 
-| indicador | unidad | anio_ultimo | ultimo_valor | cambio_10a |
-| --- | --- | --- | --- | --- |
-| Emisiones CO₂ per cápita | toneladas | 2024 | 3.64 | -10.2 % |
-| Tasa de desempleo | % de la PEA | 2025 | 2.67 | -38.0 % |
-| Deuda externa | USD corrientes | 2024 | 591.26 bn | 9.9 % |
-| Exportaciones | USD corrientes | 2024 | 681.35 bn | 64.4 % |
-| Gasto público en educación | % del PIB | 2022 | 4.06 | -19.6 % |
-| Gasto en salud | % del PIB | 2023 | 5.5 | -0.4 % |
-| Índice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
-| Inversión extranjera directa | USD corrientes | 2024 | 45.47 bn | 25.4 % |
-| Importaciones | USD corrientes | 2024 | 703.29 bn | 59.9 % |
-| Inflación | % anual | 2024 | 4.72 | 73.6 % |
-| Crecimiento del PIB | % anual | 2024 | 1.43 | -47.2 % |
-| PIB nominal | USD corrientes | 2024 | 1856.37 bn | 53.0 % |
-| PIB per cápita | USD corrientes | 2024 | 14186.0 | 41.6 % |
-| Población | habitantes | 2024 | 130.86 mn | 8.1 % |
-| Tasa de interés real | % anual | 2024 | 6.02 | 2808.8 % |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types 'abs(VARCHAR)'. You might need to add explicit type casts.
+	Candidate functions:
+	abs(TINYINT) -> TINYINT
+	abs(SMALLINT) -> SMALLINT
+	abs(INTEGER) -> INTEGER
+	abs(BIGINT) -> BIGINT
+	abs(HUGEINT) -> HUGEINT
+	abs(FLOAT) -> FLOAT
+	abs(DOUBLE) -> DOUBLE
+	abs(DECIMAL) -> DECIMAL
+	abs(UTINYINT) -> UTINYINT
+	abs(USMALLINT) -> USMALLINT
+	abs(UINTEGER) -> UINTEGER
+	abs(UBIGINT) -> UBIGINT
+	abs(UHUGEINT) -> UHUGEINT
+
+
+LINE 22:         WHEN ABS(u.valor) >= 1e9  THEN ROUND(u.valor / 1e9,  2)  || ...
+                      ^ |
 
 ---

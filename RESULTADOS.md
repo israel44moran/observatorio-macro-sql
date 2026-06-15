@@ -245,25 +245,55 @@ WHERE anio >= 1990
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 35 filas (mostrando primeras 15):
+**Resultado** — 1 filas:
 
-| anio | exp_bn_usd | imp_bn_usd | saldo_bn_usd | saldo_prom_5a_bn | clasificacion |
-| --- | --- | --- | --- | --- | --- |
-| 2024 | 681.3 | 703.3 | -21.9 | -19.6 | Deficit |
-| 2023 | 648.6 | 674.5 | -25.9 | -16.3 | Deficit |
-| 2022 | 629.8 | 672.8 | -43 | -16.5 | Deficit |
-| 2021 | 534.1 | 559.5 | -25.4 | -12.4 | Deficit |
-| 2020 | 439.9 | 421.7 | 18.1 | -11.9 | Superavit |
-| 2019 | 502.5 | 507.7 | -5.3 | -20.6 | Deficit |
-| 2018 | 490.5 | 517.2 | -26.7 | -22.8 | Deficit |
-| 2017 | 446.7 | 469.6 | -22.9 | -20.6 | Deficit |
-| 2016 | 409.5 | 432.4 | -22.9 | -18.9 | Deficit |
-| 2015 | 414.5 | 439.8 | -25.3 | -17.5 | Deficit |
-| 2014 | 429.3 | 445.3 | -16 | -15.2 | Deficit |
-| 2013 | 408.3 | 423.9 | -15.7 | -14.9 | Deficit |
-| 2012 | 395.9 | 410.7 | -14.8 | -17.2 | Deficit |
-| 2011 | 374.1 | 389.8 | -15.7 | -18 | Deficit |
-| 2010 | 320.8 | 334.5 | -13.7 | -17.6 | Deficit |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types '-(VARCHAR, VARCHAR)'. You might need to add explicit type casts.
+	Candidate functions:
+	-(TINYINT) -> TINYINT
+	-(TINYINT, TINYINT) -> TINYINT
+	-(SMALLINT) -> SMALLINT
+	-(SMALLINT, SMALLINT) -> SMALLINT
+	-(INTEGER) -> INTEGER
+	-(INTEGER, INTEGER) -> INTEGER
+	-(BIGINT) -> BIGINT
+	-(BIGINT, BIGINT) -> BIGINT
+	-(HUGEINT) -> HUGEINT
+	-(HUGEINT, HUGEINT) -> HUGEINT
+	-(FLOAT) -> FLOAT
+	-(FLOAT, FLOAT) -> FLOAT
+	-(DOUBLE) -> DOUBLE
+	-(DOUBLE, DOUBLE) -> DOUBLE
+	-(DECIMAL) -> DECIMAL
+	-(DECIMAL, DECIMAL) -> DECIMAL
+	-(UTINYINT) -> UTINYINT
+	-(UTINYINT, UTINYINT) -> UTINYINT
+	-(USMALLINT) -> USMALLINT
+	-(USMALLINT, USMALLINT) -> USMALLINT
+	-(UINTEGER) -> UINTEGER
+	-(UINTEGER, UINTEGER) -> UINTEGER
+	-(UBIGINT) -> UBIGINT
+	-(UBIGINT, UBIGINT) -> UBIGINT
+	-(UHUGEINT) -> UHUGEINT
+	-(UHUGEINT, UHUGEINT) -> UHUGEINT
+	-(BIGNUM) -> BIGNUM
+	-(BIGNUM, BIGNUM) -> BIGNUM
+	-(DATE, DATE) -> BIGINT
+	-(DATE, INTEGER) -> DATE
+	-(TIMESTAMP, TIMESTAMP) -> INTERVAL
+	-(INTERVAL, INTERVAL) -> INTERVAL
+	-(DATE, INTERVAL) -> TIMESTAMP
+	-(TIME, INTERVAL) -> TIME
+	-(TIMESTAMP, INTERVAL) -> TIMESTAMP
+	-(TIME WITH TIME ZONE, INTERVAL) -> TIME WITH TIME ZONE
+	-(INTERVAL) -> INTERVAL
+	-(TIMESTAMP WITH TIME ZONE, INTERVAL) -> TIMESTAMP WITH TIME ZONE
+	-(TIMESTAMP WITH TIME ZONE, TIMESTAMP WITH TIME ZONE) -> INTERVAL
+
+
+LINE 6:         exportaciones_usd - importaciones_usd                                AS saldo...
+                                  ^ |
 
 ---
 
@@ -392,18 +422,19 @@ GROUP BY ROLLUP(FLOOR(anio / 10) * 10)
 ORDER BY decada NULLS LAST;
 ```
 
-**Resultado** — 8 filas:
+**Resultado** — 1 filas:
 
-| decada | pib_crecimiento_prom | inflacion_prom | desempleo_prom | ied_promedio_bn_usd | ratio_export_import | poblacion_fin_decada_mn | anios_con_datos |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 1960.0s | 6.84 | 2.72 | — | — | 0.794 | 49.2 | 10 |
-| 1970.0s | 6.43 | 14.68 | — | 0.53 | 0.871 | 65.6 | 10 |
-| 1980.0s | 2.21 | 69.05 | — | 2.39 | 1.326 | 81.2 | 10 |
-| 1990.0s | 3.65 | 20.41 | 4.15 | 8.54 | 0.918 | 97.1 | 10 |
-| 2000.0s | 1.27 | 5.21 | 3.57 | 23.96 | 0.938 | 112 | 10 |
-| 2010.0s | 2.33 | 3.96 | 4.34 | 32.81 | 0.959 | 125.8 | 10 |
-| 2020.0s | 1.24 | 5.45 | 3.31 | 36.51 | 0.973 | 130.9 | 6 |
-| — | 3.54 | 18.27 | 3.89 | 15.72 | 0.968 | 130.9 | 66 |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types '/(VARCHAR, VARCHAR)'. You might need to add explicit type casts.
+	Candidate functions:
+	/(FLOAT, FLOAT) -> FLOAT
+	/(DOUBLE, DOUBLE) -> DOUBLE
+	/(INTERVAL, DOUBLE) -> INTERVAL
+
+
+LINE 7:     ROUND(AVG(exportaciones_usd / NULLIF(importaciones_usd, 0)), 3)                 AS rati...
+                                        ^ |
 
 ---
 
@@ -656,10 +687,8 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Exportaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Importaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Población | habitantes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | PIB nominal | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Crecimiento del PIB | % anual | 1961 | 2024 | 64 anios | 64 | 100.0 % | OK |
@@ -671,6 +700,8 @@ ORDER BY completitud_pct DESC, anio_inicio;
 | Gasto en salud | % del PIB | 2000 | 2023 | 24 anios | 24 | 100.0 % | OK |
 | Gasto público en educación | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
 | Índice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
+| Importaciones | USD corrientes | — | — | — | 1 | — | Serie corta o muy fragmentada |
+| Exportaciones | USD corrientes | — | — | — | 1 | — | Serie corta o muy fragmentada |
 
 ---
 
@@ -828,24 +859,28 @@ LEFT JOIN hace_10      h ON h.indicador = c.columna
 ORDER BY c.columna;
 ```
 
-**Resultado** — 15 filas:
+**Resultado** — 1 filas:
 
-| indicador | unidad | anio_ultimo | ultimo_valor | cambio_10a |
-| --- | --- | --- | --- | --- |
-| Emisiones CO₂ per cápita | toneladas | 2024 | 3.64 | -10.2 % |
-| Tasa de desempleo | % de la PEA | 2025 | 2.67 | -38.0 % |
-| Deuda externa | USD corrientes | 2024 | 591.26 bn | 9.9 % |
-| Exportaciones | USD corrientes | 2024 | 681.35 bn | 64.4 % |
-| Gasto público en educación | % del PIB | 2022 | 4.06 | -19.6 % |
-| Gasto en salud | % del PIB | 2023 | 5.5 | -0.4 % |
-| Índice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
-| Inversión extranjera directa | USD corrientes | 2024 | 45.47 bn | 25.4 % |
-| Importaciones | USD corrientes | 2024 | 703.29 bn | 59.9 % |
-| Inflación | % anual | 2024 | 4.72 | 73.6 % |
-| Crecimiento del PIB | % anual | 2024 | 1.43 | -47.2 % |
-| PIB nominal | USD corrientes | 2024 | 1856.37 bn | 53.0 % |
-| PIB per cápita | USD corrientes | 2024 | 14186.0 | 41.6 % |
-| Población | habitantes | 2024 | 130.86 mn | 8.1 % |
-| Tasa de interés real | % anual | 2024 | 6.02 | 2808.8 % |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types 'abs(VARCHAR)'. You might need to add explicit type casts.
+	Candidate functions:
+	abs(TINYINT) -> TINYINT
+	abs(SMALLINT) -> SMALLINT
+	abs(INTEGER) -> INTEGER
+	abs(BIGINT) -> BIGINT
+	abs(HUGEINT) -> HUGEINT
+	abs(FLOAT) -> FLOAT
+	abs(DOUBLE) -> DOUBLE
+	abs(DECIMAL) -> DECIMAL
+	abs(UTINYINT) -> UTINYINT
+	abs(USMALLINT) -> USMALLINT
+	abs(UINTEGER) -> UINTEGER
+	abs(UBIGINT) -> UBIGINT
+	abs(UHUGEINT) -> UHUGEINT
+
+
+LINE 22:         WHEN ABS(u.valor) >= 1e9  THEN ROUND(u.valor / 1e9,  2)  || ...
+                      ^ |
 
 ---
