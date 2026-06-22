@@ -35,13 +35,16 @@ HAVING COUNT(*) >= 3
 ORDER BY decada;
 ```
 
-**Resultado** — 4 filas:
+**Resultado** — 1 filas:
 
-| periodo | n_anios | correlacion_phillips | inflacion_prom | desempleo_prom | interpretacion |
-| --- | --- | --- | --- | --- | --- |
-| 1990.0s | 9 | 0.697 | 19.71 | 4.15 | Phillips invertida |
-| 2000.0s | 10 | -0.417 | 5.21 | 3.57 | Phillips clasica |
-| 2010.0s | 10 | -0.336 | 3.96 | 4.34 | Phillips clasica |
-| 2020.0s | 5 | -0.366 | 5.45 | 3.43 | Phillips clasica |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types 'corr(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
+	Candidate functions:
+	corr(DOUBLE, DOUBLE) -> DOUBLE
+
+
+LINE 13:     ROUND(CORR(desempleo_pct, inflacion_pct), 3)             AS corre...
+                   ^ |
 
 ---

@@ -42,7 +42,7 @@ ORDER BY anio DESC;
 
 | ERROR |
 | --- |
-| Binder Error: No function matches the given name and argument types '-(VARCHAR, VARCHAR)'. You might need to add explicit type casts.
+| Binder Error: No function matches the given name and argument types '-(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
 	Candidate functions:
 	-(TINYINT) -> TINYINT
 	-(TINYINT, TINYINT) -> TINYINT

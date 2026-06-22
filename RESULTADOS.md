@@ -194,14 +194,17 @@ HAVING COUNT(*) >= 3
 ORDER BY decada;
 ```
 
-**Resultado** — 4 filas:
+**Resultado** — 1 filas:
 
-| periodo | n_anios | correlacion_phillips | inflacion_prom | desempleo_prom | interpretacion |
-| --- | --- | --- | --- | --- | --- |
-| 1990.0s | 9 | 0.697 | 19.71 | 4.15 | Phillips invertida |
-| 2000.0s | 10 | -0.417 | 5.21 | 3.57 | Phillips clasica |
-| 2010.0s | 10 | -0.336 | 3.96 | 4.34 | Phillips clasica |
-| 2020.0s | 5 | -0.366 | 5.45 | 3.43 | Phillips clasica |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types 'corr(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
+	Candidate functions:
+	corr(DOUBLE, DOUBLE) -> DOUBLE
+
+
+LINE 13:     ROUND(CORR(desempleo_pct, inflacion_pct), 3)             AS corre...
+                   ^ |
 
 ---
 
@@ -249,7 +252,7 @@ ORDER BY anio DESC;
 
 | ERROR |
 | --- |
-| Binder Error: No function matches the given name and argument types '-(VARCHAR, VARCHAR)'. You might need to add explicit type casts.
+| Binder Error: No function matches the given name and argument types '-(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
 	Candidate functions:
 	-(TINYINT) -> TINYINT
 	-(TINYINT, TINYINT) -> TINYINT
@@ -426,15 +429,23 @@ ORDER BY decada NULLS LAST;
 
 | ERROR |
 | --- |
-| Binder Error: No function matches the given name and argument types '/(VARCHAR, VARCHAR)'. You might need to add explicit type casts.
+| Binder Error: No function matches the given name and argument types 'avg(VARCHAR)'. You might need to add explicit type casts.
 	Candidate functions:
-	/(FLOAT, FLOAT) -> FLOAT
-	/(DOUBLE, DOUBLE) -> DOUBLE
-	/(INTERVAL, DOUBLE) -> INTERVAL
+	avg(DECIMAL) -> DECIMAL
+	avg(SMALLINT) -> DOUBLE
+	avg(INTEGER) -> DOUBLE
+	avg(BIGINT) -> DOUBLE
+	avg(HUGEINT) -> DOUBLE
+	avg(INTERVAL) -> INTERVAL
+	avg(DOUBLE) -> DOUBLE
+	avg(TIMESTAMP) -> TIMESTAMP
+	avg(TIMESTAMP WITH TIME ZONE) -> TIMESTAMP WITH TIME ZONE
+	avg(TIME) -> TIME
+	avg(TIME WITH TIME ZONE) -> TIME WITH TIME ZONE
 
 
-LINE 7:     ROUND(AVG(exportaciones_usd / NULLIF(importaciones_usd, 0)), 3)                 AS rati...
-                                        ^ |
+LINE 5:     ROUND(AVG(desempleo_pct),       2)                           ...
+                  ^ |
 
 ---
 
@@ -622,22 +633,32 @@ ORDER BY score
 LIMIT 12;
 ```
 
-**Resultado** — 12 filas:
+**Resultado** — 1 filas:
 
-| anio | pib_pct | inflacion | desempleo | ied_bn | score | cuartil_global | clasificacion |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 2024 | 1.43 | 4.72 | 2.68 | 45.5 | 46 | 1 | Excelente |
-| 2022 | 3.71 | 7.9 | 3.26 | 39.2 | 47 | 1 | Excelente |
-| 2006 | 4.81 | 3.63 | 3.57 | 22.1 | 48 | 1 | Excelente |
-| 2016 | 1.77 | 2.82 | 3.85 | 38.9 | 49 | 1 | Excelente |
-| 2015 | 2.7 | 2.72 | 4.31 | 36.3 | 49 | 1 | Excelente |
-| 2023 | 3.35 | 5.53 | 2.77 | 30.7 | 51 | 1 | Excelente |
-| 2018 | 1.97 | 4.9 | 3.28 | 37.9 | 53 | 1 | Excelente |
-| 2021 | 6.05 | 5.69 | 4.02 | 35.6 | 54 | 1 | Excelente |
-| 2007 | 2.08 | 3.97 | 3.63 | 31 | 56 | 1 | Excelente |
-| 2000 | 5.03 | 9.49 | 2.65 | 18.4 | 57 | 2 | Bueno |
-| 2010 | 4.97 | 4.16 | 5.3 | 30.5 | 61 | 2 | Bueno |
-| 2005 | 2.11 | 3.99 | 3.56 | 25.2 | 61 | 2 | Bueno |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types 'round(VARCHAR, INTEGER_LITERAL)'. You might need to add explicit type casts.
+	Candidate functions:
+	round(TINYINT) -> TINYINT
+	round(TINYINT, INTEGER) -> TINYINT
+	round(SMALLINT) -> SMALLINT
+	round(SMALLINT, INTEGER) -> SMALLINT
+	round(INTEGER) -> INTEGER
+	round(INTEGER, INTEGER) -> INTEGER
+	round(BIGINT) -> BIGINT
+	round(BIGINT, INTEGER) -> BIGINT
+	round(HUGEINT) -> HUGEINT
+	round(HUGEINT, INTEGER) -> HUGEINT
+	round(FLOAT) -> FLOAT
+	round(FLOAT, INTEGER) -> FLOAT
+	round(DOUBLE) -> DOUBLE
+	round(DOUBLE, INTEGER) -> DOUBLE
+	round(DECIMAL) -> DECIMAL
+	round(DECIMAL, INTEGER) -> DECIMAL
+
+
+LINE 6:         ROUND(desempleo_pct, 2)       AS desempleo,
+                ^ |
 
 ---
 
@@ -687,20 +708,20 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Importaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Población | habitantes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
+| PIB nominal | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| PIB nominal | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
 | Crecimiento del PIB | % anual | 1961 | 2024 | 64 anios | 64 | 100.0 % | OK |
 | Inversión extranjera directa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Deuda externa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Emisiones CO₂ per cápita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
-| Tasa de desempleo | % de la PEA | 1991 | 2025 | 35 anios | 35 | 100.0 % | OK |
 | Tasa de interés real | % anual | 1993 | 2024 | 32 anios | 32 | 100.0 % | OK |
 | Gasto en salud | % del PIB | 2000 | 2023 | 24 anios | 24 | 100.0 % | OK |
 | Gasto público en educación | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
 | Índice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
-| Importaciones | USD corrientes | — | — | — | 1 | — | Serie corta o muy fragmentada |
+| Tasa de desempleo | % de la PEA | — | — | — | 1 | — | Serie corta o muy fragmentada |
 | Exportaciones | USD corrientes | — | — | — | 1 | — | Serie corta o muy fragmentada |
 
 ---

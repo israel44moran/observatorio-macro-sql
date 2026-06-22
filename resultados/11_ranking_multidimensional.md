@@ -51,21 +51,31 @@ ORDER BY score
 LIMIT 12;
 ```
 
-**Resultado** — 12 filas:
+**Resultado** — 1 filas:
 
-| anio | pib_pct | inflacion | desempleo | ied_bn | score | cuartil_global | clasificacion |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 2024 | 1.43 | 4.72 | 2.68 | 45.5 | 46 | 1 | Excelente |
-| 2022 | 3.71 | 7.9 | 3.26 | 39.2 | 47 | 1 | Excelente |
-| 2006 | 4.81 | 3.63 | 3.57 | 22.1 | 48 | 1 | Excelente |
-| 2016 | 1.77 | 2.82 | 3.85 | 38.9 | 49 | 1 | Excelente |
-| 2015 | 2.7 | 2.72 | 4.31 | 36.3 | 49 | 1 | Excelente |
-| 2023 | 3.35 | 5.53 | 2.77 | 30.7 | 51 | 1 | Excelente |
-| 2018 | 1.97 | 4.9 | 3.28 | 37.9 | 53 | 1 | Excelente |
-| 2021 | 6.05 | 5.69 | 4.02 | 35.6 | 54 | 1 | Excelente |
-| 2007 | 2.08 | 3.97 | 3.63 | 31 | 56 | 1 | Excelente |
-| 2000 | 5.03 | 9.49 | 2.65 | 18.4 | 57 | 2 | Bueno |
-| 2010 | 4.97 | 4.16 | 5.3 | 30.5 | 61 | 2 | Bueno |
-| 2005 | 2.11 | 3.99 | 3.56 | 25.2 | 61 | 2 | Bueno |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types 'round(VARCHAR, INTEGER_LITERAL)'. You might need to add explicit type casts.
+	Candidate functions:
+	round(TINYINT) -> TINYINT
+	round(TINYINT, INTEGER) -> TINYINT
+	round(SMALLINT) -> SMALLINT
+	round(SMALLINT, INTEGER) -> SMALLINT
+	round(INTEGER) -> INTEGER
+	round(INTEGER, INTEGER) -> INTEGER
+	round(BIGINT) -> BIGINT
+	round(BIGINT, INTEGER) -> BIGINT
+	round(HUGEINT) -> HUGEINT
+	round(HUGEINT, INTEGER) -> HUGEINT
+	round(FLOAT) -> FLOAT
+	round(FLOAT, INTEGER) -> FLOAT
+	round(DOUBLE) -> DOUBLE
+	round(DOUBLE, INTEGER) -> DOUBLE
+	round(DECIMAL) -> DECIMAL
+	round(DECIMAL, INTEGER) -> DECIMAL
+
+
+LINE 6:         ROUND(desempleo_pct, 2)       AS desempleo,
+                ^ |
 
 ---

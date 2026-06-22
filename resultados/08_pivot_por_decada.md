@@ -27,14 +27,22 @@ ORDER BY decada NULLS LAST;
 
 | ERROR |
 | --- |
-| Binder Error: No function matches the given name and argument types '/(VARCHAR, VARCHAR)'. You might need to add explicit type casts.
+| Binder Error: No function matches the given name and argument types 'avg(VARCHAR)'. You might need to add explicit type casts.
 	Candidate functions:
-	/(FLOAT, FLOAT) -> FLOAT
-	/(DOUBLE, DOUBLE) -> DOUBLE
-	/(INTERVAL, DOUBLE) -> INTERVAL
+	avg(DECIMAL) -> DECIMAL
+	avg(SMALLINT) -> DOUBLE
+	avg(INTEGER) -> DOUBLE
+	avg(BIGINT) -> DOUBLE
+	avg(HUGEINT) -> DOUBLE
+	avg(INTERVAL) -> INTERVAL
+	avg(DOUBLE) -> DOUBLE
+	avg(TIMESTAMP) -> TIMESTAMP
+	avg(TIMESTAMP WITH TIME ZONE) -> TIMESTAMP WITH TIME ZONE
+	avg(TIME) -> TIME
+	avg(TIME WITH TIME ZONE) -> TIME WITH TIME ZONE
 
 
-LINE 7:     ROUND(AVG(exportaciones_usd / NULLIF(importaciones_usd, 0)), 3)                 AS rati...
-                                        ^ |
+LINE 5:     ROUND(AVG(desempleo_pct),       2)                           ...
+                  ^ |
 
 ---
