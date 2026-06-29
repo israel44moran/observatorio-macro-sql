@@ -38,54 +38,24 @@ WHERE anio >= 1990
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 35 filas (mostrando primeras 15):
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '-(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
-	Candidate functions:
-	-(TINYINT) -> TINYINT
-	-(TINYINT, TINYINT) -> TINYINT
-	-(SMALLINT) -> SMALLINT
-	-(SMALLINT, SMALLINT) -> SMALLINT
-	-(INTEGER) -> INTEGER
-	-(INTEGER, INTEGER) -> INTEGER
-	-(BIGINT) -> BIGINT
-	-(BIGINT, BIGINT) -> BIGINT
-	-(HUGEINT) -> HUGEINT
-	-(HUGEINT, HUGEINT) -> HUGEINT
-	-(FLOAT) -> FLOAT
-	-(FLOAT, FLOAT) -> FLOAT
-	-(DOUBLE) -> DOUBLE
-	-(DOUBLE, DOUBLE) -> DOUBLE
-	-(DECIMAL) -> DECIMAL
-	-(DECIMAL, DECIMAL) -> DECIMAL
-	-(UTINYINT) -> UTINYINT
-	-(UTINYINT, UTINYINT) -> UTINYINT
-	-(USMALLINT) -> USMALLINT
-	-(USMALLINT, USMALLINT) -> USMALLINT
-	-(UINTEGER) -> UINTEGER
-	-(UINTEGER, UINTEGER) -> UINTEGER
-	-(UBIGINT) -> UBIGINT
-	-(UBIGINT, UBIGINT) -> UBIGINT
-	-(UHUGEINT) -> UHUGEINT
-	-(UHUGEINT, UHUGEINT) -> UHUGEINT
-	-(BIGNUM) -> BIGNUM
-	-(BIGNUM, BIGNUM) -> BIGNUM
-	-(DATE, DATE) -> BIGINT
-	-(DATE, INTEGER) -> DATE
-	-(TIMESTAMP, TIMESTAMP) -> INTERVAL
-	-(INTERVAL, INTERVAL) -> INTERVAL
-	-(DATE, INTERVAL) -> TIMESTAMP
-	-(TIME, INTERVAL) -> TIME
-	-(TIMESTAMP, INTERVAL) -> TIMESTAMP
-	-(TIME WITH TIME ZONE, INTERVAL) -> TIME WITH TIME ZONE
-	-(INTERVAL) -> INTERVAL
-	-(TIMESTAMP WITH TIME ZONE, INTERVAL) -> TIMESTAMP WITH TIME ZONE
-	-(TIMESTAMP WITH TIME ZONE, TIMESTAMP WITH TIME ZONE) -> INTERVAL
-
-
-LINE 6:         exportaciones_usd - importaciones_usd                                AS saldo...
-                                  ^ |
+| anio | exp_bn_usd | imp_bn_usd | saldo_bn_usd | saldo_prom_5a_bn | clasificacion |
+| --- | --- | --- | --- | --- | --- |
+| 2024 | 681.3 | 703.3 | -21.9 | -19.6 | Deficit |
+| 2023 | 648.6 | 674.5 | -25.9 | -16.3 | Deficit |
+| 2022 | 629.8 | 672.8 | -43 | -16.5 | Deficit |
+| 2021 | 534.1 | 559.5 | -25.4 | -12.4 | Deficit |
+| 2020 | 439.9 | 421.7 | 18.1 | -11.9 | Superavit |
+| 2019 | 502.5 | 507.7 | -5.3 | -20.6 | Deficit |
+| 2018 | 490.5 | 517.2 | -26.7 | -22.8 | Deficit |
+| 2017 | 446.7 | 469.6 | -22.9 | -20.6 | Deficit |
+| 2016 | 409.5 | 432.4 | -22.9 | -18.9 | Deficit |
+| 2015 | 414.5 | 439.8 | -25.3 | -17.5 | Deficit |
+| 2014 | 429.3 | 445.3 | -16 | -15.2 | Deficit |
+| 2013 | 408.3 | 423.9 | -15.7 | -14.9 | Deficit |
+| 2012 | 395.9 | 410.7 | -14.8 | -17.2 | Deficit |
+| 2011 | 374.1 | 389.8 | -15.7 | -18 | Deficit |
+| 2010 | 320.8 | 334.5 | -13.7 | -17.6 | Deficit |
 
 ---
