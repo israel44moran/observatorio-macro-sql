@@ -38,11 +38,12 @@ WHERE anio >= 1990
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 35 filas (mostrando primeras 15):
+**Resultado** — 36 filas (mostrando primeras 15):
 
 | anio | exp_bn_usd | imp_bn_usd | saldo_bn_usd | saldo_prom_5a_bn | clasificacion |
 | --- | --- | --- | --- | --- | --- |
-| 2024 | 681.3 | 703.3 | -21.9 | -19.6 | Deficit |
+| 2025 | 726.6 | 738.2 | -11.6 | -24.3 | Deficit |
+| 2024 | 682.5 | 698.2 | -15.7 | -18.4 | Deficit |
 | 2023 | 648.6 | 674.5 | -25.9 | -16.3 | Deficit |
 | 2022 | 629.8 | 672.8 | -43 | -16.5 | Deficit |
 | 2021 | 534.1 | 559.5 | -25.4 | -12.4 | Deficit |
@@ -56,6 +57,5 @@ ORDER BY anio DESC;
 | 2013 | 408.3 | 423.9 | -15.7 | -14.9 | Deficit |
 | 2012 | 395.9 | 410.7 | -14.8 | -17.2 | Deficit |
 | 2011 | 374.1 | 389.8 | -15.7 | -18 | Deficit |
-| 2010 | 320.8 | 334.5 | -13.7 | -17.6 | Deficit |
 
 ---

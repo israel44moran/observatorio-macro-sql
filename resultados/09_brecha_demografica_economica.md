@@ -43,12 +43,13 @@ WHERE anio >= 2000
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 25 filas (mostrando primeras 15):
+**Resultado** — 26 filas (mostrando primeras 15):
 
 | anio | crec_pob_pct | crec_pib_pct | brecha | interpretacion |
 | --- | --- | --- | --- | --- |
-| 2024 | 0.864 | 3.23 | 2.37 | Mejora marginal |
-| 2023 | 0.876 | 22.59 | 21.71 | Mejora fuerte del bienestar |
+| 2025 | 0.83 | 0.12 | -0.71 | Estancamiento |
+| 2024 | 0.864 | 2.01 | 1.15 | Mejora marginal |
+| 2023 | 0.876 | 22.32 | 21.44 | Mejora fuerte del bienestar |
 | 2022 | 0.756 | 11.42 | 10.66 | Mejora fuerte del bienestar |
 | 2021 | 0.67 | 17.44 | 16.77 | Mejora fuerte del bienestar |
 | 2020 | 0.824 | -14.04 | -14.86 | Retroceso real |
@@ -61,6 +62,5 @@ ORDER BY anio DESC;
 | 2013 | 1.306 | 5.76 | 4.45 | Mejora fuerte del bienestar |
 | 2012 | 1.366 | 2.12 | 0.75 | Mejora marginal |
 | 2011 | 1.425 | 11.18 | 9.75 | Mejora fuerte del bienestar |
-| 2010 | 1.45 | 17.17 | 15.72 | Mejora fuerte del bienestar |
 
 ---

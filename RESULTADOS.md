@@ -38,8 +38,9 @@ ORDER BY anio DESC;
 
 | anio | pib_billones_usd | delta_billones | variacion_pct |
 | --- | --- | --- | --- |
-| 2024 | 1,856.4 | 58 | 3.23 |
-| 2023 | 1,798.3 | 331.4 | 22.59 |
+| 2025 | 1,832.6 | 2.2 | 0.12 |
+| 2024 | 1,830.5 | 36.1 | 2.01 |
+| 2023 | 1,794.4 | 327.5 | 22.32 |
 | 2022 | 1,466.9 | 150.4 | 11.42 |
 | 2021 | 1,316.6 | 195.5 | 17.44 |
 | 2020 | 1,121.1 | -183 | -14.04 |
@@ -52,7 +53,6 @@ ORDER BY anio DESC;
 | 2013 | 1,327.4 | 72.3 | 5.76 |
 | 2012 | 1,255.1 | 26.1 | 2.12 |
 | 2011 | 1,229 | 123.6 | 11.18 |
-| 2010 | 1,105.4 | 162 | 17.17 |
 
 ---
 
@@ -201,7 +201,7 @@ ORDER BY decada;
 | 1990.0s | 9 | 0.697 | 19.71 | 4.15 | Phillips invertida |
 | 2000.0s | 10 | -0.417 | 5.21 | 3.57 | Phillips clasica |
 | 2010.0s | 10 | -0.336 | 3.96 | 4.34 | Phillips clasica |
-| 2020.0s | 5 | -0.366 | 5.45 | 3.43 | Phillips clasica |
+| 2020.0s | 6 | -0.135 | 5.17 | 3.31 | Sin relacion clara |
 
 ---
 
@@ -245,11 +245,12 @@ WHERE anio >= 1990
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 35 filas (mostrando primeras 15):
+**Resultado** — 36 filas (mostrando primeras 15):
 
 | anio | exp_bn_usd | imp_bn_usd | saldo_bn_usd | saldo_prom_5a_bn | clasificacion |
 | --- | --- | --- | --- | --- | --- |
-| 2024 | 681.3 | 703.3 | -21.9 | -19.6 | Deficit |
+| 2025 | 726.6 | 738.2 | -11.6 | -24.3 | Deficit |
+| 2024 | 682.5 | 698.2 | -15.7 | -18.4 | Deficit |
 | 2023 | 648.6 | 674.5 | -25.9 | -16.3 | Deficit |
 | 2022 | 629.8 | 672.8 | -43 | -16.5 | Deficit |
 | 2021 | 534.1 | 559.5 | -25.4 | -12.4 | Deficit |
@@ -263,7 +264,6 @@ ORDER BY anio DESC;
 | 2013 | 408.3 | 423.9 | -15.7 | -14.9 | Deficit |
 | 2012 | 395.9 | 410.7 | -14.8 | -17.2 | Deficit |
 | 2011 | 374.1 | 389.8 | -15.7 | -18 | Deficit |
-| 2010 | 320.8 | 334.5 | -13.7 | -17.6 | Deficit |
 
 ---
 
@@ -345,12 +345,13 @@ WHERE pib_crecimiento_pct IS NOT NULL
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 35 filas (mostrando primeras 15):
+**Resultado** — 36 filas (mostrando primeras 15):
 
 | anio | pib_anual | prom_movil_3a | prom_movil_5a | prom_movil_10a |
 | --- | --- | --- | --- | --- |
-| 2024 | 1.43 | 2.83 | 1.24 | 1.41 |
-| 2023 | 3.35 | 4.37 | 0.87 | 1.52 |
+| 2025 | 0.56 | 1.67 | 2.96 | 1.16 |
+| 2024 | 1.35 | 2.72 | 1.17 | 1.38 |
+| 2023 | 3.11 | 4.29 | 0.82 | 1.49 |
 | 2022 | 3.71 | 0.47 | 0.6 | 1.27 |
 | 2021 | 6.05 | -0.9 | 0.23 | 1.25 |
 | 2020 | -8.35 | -2.26 | -0.63 | 0.99 |
@@ -363,7 +364,6 @@ ORDER BY anio DESC;
 | 2013 | 0.85 | 2.62 | 1.31 | 2 |
 | 2012 | 3.55 | 3.99 | 1.32 | 2.04 |
 | 2011 | 3.44 | 0.71 | 1.03 | 1.66 |
-| 2010 | 4.97 | -0.13 | 1.3 | 1.27 |
 
 ---
 
@@ -402,8 +402,8 @@ ORDER BY decada NULLS LAST;
 | 1990.0s | 3.65 | 20.41 | 4.15 | 8.54 | 0.918 | 97.1 | 10 |
 | 2000.0s | 1.27 | 5.21 | 3.57 | 23.96 | 0.938 | 112 | 10 |
 | 2010.0s | 2.33 | 3.96 | 4.34 | 32.81 | 0.959 | 125.8 | 10 |
-| 2020.0s | 1.24 | 5.45 | 3.31 | 36.51 | 0.973 | 130.9 | 6 |
-| — | 3.54 | 18.27 | 3.89 | 15.72 | 0.968 | 130.9 | 66 |
+| 2020.0s | 1.07 | 5.17 | 3.31 | 36.51 | 0.976 | 131.9 | 6 |
+| — | 3.49 | 18.05 | 3.89 | 15.72 | 0.968 | 131.9 | 66 |
 
 ---
 
@@ -452,12 +452,13 @@ WHERE anio >= 2000
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 25 filas (mostrando primeras 15):
+**Resultado** — 26 filas (mostrando primeras 15):
 
 | anio | crec_pob_pct | crec_pib_pct | brecha | interpretacion |
 | --- | --- | --- | --- | --- |
-| 2024 | 0.864 | 3.23 | 2.37 | Mejora marginal |
-| 2023 | 0.876 | 22.59 | 21.71 | Mejora fuerte del bienestar |
+| 2025 | 0.83 | 0.12 | -0.71 | Estancamiento |
+| 2024 | 0.864 | 2.01 | 1.15 | Mejora marginal |
+| 2023 | 0.876 | 22.32 | 21.44 | Mejora fuerte del bienestar |
 | 2022 | 0.756 | 11.42 | 10.66 | Mejora fuerte del bienestar |
 | 2021 | 0.67 | 17.44 | 16.77 | Mejora fuerte del bienestar |
 | 2020 | 0.824 | -14.04 | -14.86 | Retroceso real |
@@ -470,7 +471,6 @@ ORDER BY anio DESC;
 | 2013 | 1.306 | 5.76 | 4.45 | Mejora fuerte del bienestar |
 | 2012 | 1.366 | 2.12 | 0.75 | Mejora marginal |
 | 2011 | 1.425 | 11.18 | 9.75 | Mejora fuerte del bienestar |
-| 2010 | 1.45 | 17.17 | 15.72 | Mejora fuerte del bienestar |
 
 ---
 
@@ -532,9 +532,9 @@ ORDER BY e.anio;
 | 2006 | Inicio periodo de Calderón | regimen | 1.24 | 1.03 | 4.92 | 4.39 |
 | 2009 | Crisis financiera global | crisis | 2.7 | 3.06 | 4.28 | 3.9 |
 | 2012 | Inicio periodo de Peña Nieto | regimen | 1.03 | 1.94 | 4.39 | 3.88 |
-| 2018 | Inicio periodo de López Obrador (AMLO) | regimen | 1.94 | 0.87 | 3.88 | 5.23 |
-| 2020 | Pandemia COVID-19 | crisis | 1.59 | 3.63 | 4.02 | 5.96 |
-| 2024 | Inicio periodo de Sheinbaum | regimen | 0.87 | — | 5.23 | — |
+| 2018 | Inicio periodo de López Obrador (AMLO) | regimen | 1.94 | 0.82 | 3.88 | 5.23 |
+| 2020 | Pandemia COVID-19 | crisis | 1.59 | 2.96 | 4.02 | 5.53 |
+| 2024 | Inicio periodo de Sheinbaum | regimen | 0.82 | 0.56 | 5.23 | 3.81 |
 
 ---
 
@@ -595,12 +595,12 @@ LIMIT 12;
 
 | anio | pib_pct | inflacion | desempleo | ied_bn | score | cuartil_global | clasificacion |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2024 | 1.43 | 4.72 | 2.68 | 45.5 | 46 | 1 | Excelente |
+| 2024 | 1.35 | 4.72 | 2.68 | 45.5 | 46 | 1 | Excelente |
 | 2022 | 3.71 | 7.9 | 3.26 | 39.2 | 47 | 1 | Excelente |
 | 2006 | 4.81 | 3.63 | 3.57 | 22.1 | 48 | 1 | Excelente |
 | 2016 | 1.77 | 2.82 | 3.85 | 38.9 | 49 | 1 | Excelente |
 | 2015 | 2.7 | 2.72 | 4.31 | 36.3 | 49 | 1 | Excelente |
-| 2023 | 3.35 | 5.53 | 2.77 | 30.7 | 51 | 1 | Excelente |
+| 2023 | 3.11 | 5.53 | 2.77 | 30.7 | 51 | 1 | Excelente |
 | 2018 | 1.97 | 4.9 | 3.28 | 37.9 | 53 | 1 | Excelente |
 | 2021 | 6.05 | 5.69 | 4.02 | 35.6 | 54 | 1 | Excelente |
 | 2007 | 2.08 | 3.97 | 3.63 | 31 | 56 | 1 | Excelente |
@@ -656,21 +656,21 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| PIB per cápita | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Inflación | % anual | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| PIB nominal | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Exportaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Importaciones | USD corrientes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Población | habitantes | 1960 | 2024 | 65 anios | 65 | 100.0 % | OK |
-| Crecimiento del PIB | % anual | 1961 | 2024 | 64 anios | 64 | 100.0 % | OK |
+| PIB per cápita | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| Inflación | % anual | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| PIB nominal | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| Exportaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| Importaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| Población | habitantes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| Crecimiento del PIB | % anual | 1961 | 2025 | 65 anios | 65 | 100.0 % | OK |
 | Deuda externa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Emisiones CO₂ per cápita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Inversión extranjera directa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Tasa de desempleo | % de la PEA | 1991 | 2025 | 35 anios | 35 | 100.0 % | OK |
-| Tasa de interés real | % anual | 1993 | 2024 | 32 anios | 32 | 100.0 % | OK |
-| Gasto en salud | % del PIB | 2000 | 2023 | 24 anios | 24 | 100.0 % | OK |
+| Tasa de interés real | % anual | 1993 | 2025 | 33 anios | 33 | 100.0 % | OK |
 | Gasto público en educación | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
-| Índice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
+| Índice de Gini | 0-100 | — | — | — | 1 | — | Serie corta o muy fragmentada |
+| Gasto en salud | % del PIB | — | — | — | 1 | — | Serie corta o muy fragmentada |
 
 ---
 
@@ -767,8 +767,8 @@ LIMIT 15;
 | --- | --- | --- | --- |
 | 1983 | -4.62 | 6.61 | 14.32 |
 | 1984 | 3.51 | 5.98 | 14.21 |
-| 2023 | 3.35 | 5.65 | 14.4 |
-| 2024 | 1.43 | 5.61 | 14.4 |
+| 2023 | 3.11 | 5.62 | 14.4 |
+| 2024 | 1.35 | 5.58 | 14.4 |
 | 2022 | 3.71 | 5.53 | 14.4 |
 | 1998 | 6.19 | 5.42 | 13.11 |
 | 1999 | 2.76 | 5.41 | 13.11 |
@@ -828,24 +828,28 @@ LEFT JOIN hace_10      h ON h.indicador = c.columna
 ORDER BY c.columna;
 ```
 
-**Resultado** — 15 filas:
+**Resultado** — 1 filas:
 
-| indicador | unidad | anio_ultimo | ultimo_valor | cambio_10a |
-| --- | --- | --- | --- | --- |
-| Emisiones CO₂ per cápita | toneladas | 2024 | 3.64 | -10.2 % |
-| Tasa de desempleo | % de la PEA | 2025 | 2.67 | -38.0 % |
-| Deuda externa | USD corrientes | 2024 | 591.26 bn | 9.9 % |
-| Exportaciones | USD corrientes | 2024 | 681.35 bn | 64.4 % |
-| Gasto público en educación | % del PIB | 2022 | 4.06 | -19.6 % |
-| Gasto en salud | % del PIB | 2023 | 5.5 | -0.4 % |
-| Índice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
-| Inversión extranjera directa | USD corrientes | 2024 | 45.47 bn | 25.4 % |
-| Importaciones | USD corrientes | 2024 | 703.29 bn | 59.9 % |
-| Inflación | % anual | 2024 | 4.72 | 73.6 % |
-| Crecimiento del PIB | % anual | 2024 | 1.43 | -47.2 % |
-| PIB nominal | USD corrientes | 2024 | 1856.37 bn | 53.0 % |
-| PIB per cápita | USD corrientes | 2024 | 14186.0 | 41.6 % |
-| Población | habitantes | 2024 | 130.86 mn | 8.1 % |
-| Tasa de interés real | % anual | 2024 | 6.02 | 2808.8 % |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types 'abs(VARCHAR)'. You might need to add explicit type casts.
+	Candidate functions:
+	abs(TINYINT) -> TINYINT
+	abs(SMALLINT) -> SMALLINT
+	abs(INTEGER) -> INTEGER
+	abs(BIGINT) -> BIGINT
+	abs(HUGEINT) -> HUGEINT
+	abs(FLOAT) -> FLOAT
+	abs(DOUBLE) -> DOUBLE
+	abs(DECIMAL) -> DECIMAL
+	abs(UTINYINT) -> UTINYINT
+	abs(USMALLINT) -> USMALLINT
+	abs(UINTEGER) -> UINTEGER
+	abs(UBIGINT) -> UBIGINT
+	abs(UHUGEINT) -> UHUGEINT
+
+
+LINE 22:         WHEN ABS(u.valor) >= 1e9  THEN ROUND(u.valor / 1e9,  2)  || ...
+                      ^ |
 
 ---

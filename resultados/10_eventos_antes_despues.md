@@ -56,8 +56,8 @@ ORDER BY e.anio;
 | 2006 | Inicio periodo de Calderón | regimen | 1.24 | 1.03 | 4.92 | 4.39 |
 | 2009 | Crisis financiera global | crisis | 2.7 | 3.06 | 4.28 | 3.9 |
 | 2012 | Inicio periodo de Peña Nieto | regimen | 1.03 | 1.94 | 4.39 | 3.88 |
-| 2018 | Inicio periodo de López Obrador (AMLO) | regimen | 1.94 | 0.87 | 3.88 | 5.23 |
-| 2020 | Pandemia COVID-19 | crisis | 1.59 | 3.63 | 4.02 | 5.96 |
-| 2024 | Inicio periodo de Sheinbaum | regimen | 0.87 | — | 5.23 | — |
+| 2018 | Inicio periodo de López Obrador (AMLO) | regimen | 1.94 | 0.82 | 3.88 | 5.23 |
+| 2020 | Pandemia COVID-19 | crisis | 1.59 | 2.96 | 4.02 | 5.53 |
+| 2024 | Inicio periodo de Sheinbaum | regimen | 0.82 | 0.56 | 5.23 | 3.81 |
 
 ---
