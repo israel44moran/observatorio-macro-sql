@@ -392,18 +392,19 @@ GROUP BY ROLLUP(FLOOR(anio / 10) * 10)
 ORDER BY decada NULLS LAST;
 ```
 
-**Resultado** — 8 filas:
+**Resultado** — 1 filas:
 
-| decada | pib_crecimiento_prom | inflacion_prom | desempleo_prom | ied_promedio_bn_usd | ratio_export_import | poblacion_fin_decada_mn | anios_con_datos |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 1960.0s | 6.84 | 2.72 | — | — | 0.794 | 49.2 | 10 |
-| 1970.0s | 6.43 | 14.68 | — | 0.53 | 0.871 | 65.6 | 10 |
-| 1980.0s | 2.21 | 69.05 | — | 2.39 | 1.326 | 81.2 | 10 |
-| 1990.0s | 3.65 | 20.41 | 4.15 | 8.54 | 0.918 | 97.1 | 10 |
-| 2000.0s | 1.27 | 5.21 | 3.57 | 23.96 | 0.938 | 112 | 10 |
-| 2010.0s | 2.33 | 3.96 | 4.34 | 32.81 | 0.959 | 125.8 | 10 |
-| 2020.0s | 1.07 | 5.17 | 3.31 | 36.51 | 0.976 | 131.9 | 6 |
-| — | 3.49 | 18.05 | 3.89 | 15.72 | 0.968 | 131.9 | 66 |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types '/(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
+	Candidate functions:
+	/(FLOAT, FLOAT) -> FLOAT
+	/(DOUBLE, DOUBLE) -> DOUBLE
+	/(INTERVAL, DOUBLE) -> INTERVAL
+
+
+LINE 8:     ROUND(MAX(poblacion) / 1e6, 1)                                              ...
+                                 ^ |
 
 ---
 
@@ -452,25 +453,55 @@ WHERE anio >= 2000
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 26 filas (mostrando primeras 15):
+**Resultado** — 1 filas:
 
-| anio | crec_pob_pct | crec_pib_pct | brecha | interpretacion |
-| --- | --- | --- | --- | --- |
-| 2025 | 0.83 | 0.12 | -0.71 | Estancamiento |
-| 2024 | 0.864 | 2.01 | 1.15 | Mejora marginal |
-| 2023 | 0.876 | 22.32 | 21.44 | Mejora fuerte del bienestar |
-| 2022 | 0.756 | 11.42 | 10.66 | Mejora fuerte del bienestar |
-| 2021 | 0.67 | 17.44 | 16.77 | Mejora fuerte del bienestar |
-| 2020 | 0.824 | -14.04 | -14.86 | Retroceso real |
-| 2019 | 0.955 | 3.81 | 2.86 | Mejora marginal |
-| 2018 | 0.951 | 5.51 | 4.56 | Mejora fuerte del bienestar |
-| 2017 | 0.94 | 7.06 | 6.12 | Mejora fuerte del bienestar |
-| 2016 | 0.974 | -8.33 | -9.3 | Retroceso real |
-| 2015 | 1.075 | -11.08 | -12.16 | Retroceso real |
-| 2014 | 1.217 | 2.79 | 1.57 | Mejora marginal |
-| 2013 | 1.306 | 5.76 | 4.45 | Mejora fuerte del bienestar |
-| 2012 | 1.366 | 2.12 | 0.75 | Mejora marginal |
-| 2011 | 1.425 | 11.18 | 9.75 | Mejora fuerte del bienestar |
+| ERROR |
+| --- |
+| Binder Error: No function matches the given name and argument types '-(VARCHAR, VARCHAR)'. You might need to add explicit type casts.
+	Candidate functions:
+	-(TINYINT) -> TINYINT
+	-(TINYINT, TINYINT) -> TINYINT
+	-(SMALLINT) -> SMALLINT
+	-(SMALLINT, SMALLINT) -> SMALLINT
+	-(INTEGER) -> INTEGER
+	-(INTEGER, INTEGER) -> INTEGER
+	-(BIGINT) -> BIGINT
+	-(BIGINT, BIGINT) -> BIGINT
+	-(HUGEINT) -> HUGEINT
+	-(HUGEINT, HUGEINT) -> HUGEINT
+	-(FLOAT) -> FLOAT
+	-(FLOAT, FLOAT) -> FLOAT
+	-(DOUBLE) -> DOUBLE
+	-(DOUBLE, DOUBLE) -> DOUBLE
+	-(DECIMAL) -> DECIMAL
+	-(DECIMAL, DECIMAL) -> DECIMAL
+	-(UTINYINT) -> UTINYINT
+	-(UTINYINT, UTINYINT) -> UTINYINT
+	-(USMALLINT) -> USMALLINT
+	-(USMALLINT, USMALLINT) -> USMALLINT
+	-(UINTEGER) -> UINTEGER
+	-(UINTEGER, UINTEGER) -> UINTEGER
+	-(UBIGINT) -> UBIGINT
+	-(UBIGINT, UBIGINT) -> UBIGINT
+	-(UHUGEINT) -> UHUGEINT
+	-(UHUGEINT, UHUGEINT) -> UHUGEINT
+	-(BIGNUM) -> BIGNUM
+	-(BIGNUM, BIGNUM) -> BIGNUM
+	-(DATE, DATE) -> BIGINT
+	-(DATE, INTEGER) -> DATE
+	-(TIMESTAMP, TIMESTAMP) -> INTERVAL
+	-(INTERVAL, INTERVAL) -> INTERVAL
+	-(DATE, INTERVAL) -> TIMESTAMP
+	-(TIME, INTERVAL) -> TIME
+	-(TIMESTAMP, INTERVAL) -> TIMESTAMP
+	-(TIME WITH TIME ZONE, INTERVAL) -> TIME WITH TIME ZONE
+	-(INTERVAL) -> INTERVAL
+	-(TIMESTAMP WITH TIME ZONE, INTERVAL) -> TIMESTAMP WITH TIME ZONE
+	-(TIMESTAMP WITH TIME ZONE, TIMESTAMP WITH TIME ZONE) -> INTERVAL
+
+
+LINE 15:         ROUND(((poblacion - pob_prev) / pob_prev) * 100, 3)        AS crec_pob_pct,
+                                   ^ |
 
 ---
 
@@ -595,18 +626,18 @@ LIMIT 12;
 
 | anio | pib_pct | inflacion | desempleo | ied_bn | score | cuartil_global | clasificacion |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2024 | 1.35 | 4.72 | 2.68 | 45.5 | 46 | 1 | Excelente |
-| 2022 | 3.71 | 7.9 | 3.26 | 39.2 | 47 | 1 | Excelente |
-| 2006 | 4.81 | 3.63 | 3.57 | 22.1 | 48 | 1 | Excelente |
-| 2016 | 1.77 | 2.82 | 3.85 | 38.9 | 49 | 1 | Excelente |
-| 2015 | 2.7 | 2.72 | 4.31 | 36.3 | 49 | 1 | Excelente |
-| 2023 | 3.11 | 5.53 | 2.77 | 30.7 | 51 | 1 | Excelente |
-| 2018 | 1.97 | 4.9 | 3.28 | 37.9 | 53 | 1 | Excelente |
-| 2021 | 6.05 | 5.69 | 4.02 | 35.6 | 54 | 1 | Excelente |
-| 2007 | 2.08 | 3.97 | 3.63 | 31 | 56 | 1 | Excelente |
-| 2000 | 5.03 | 9.49 | 2.65 | 18.4 | 57 | 2 | Bueno |
-| 2010 | 4.97 | 4.16 | 5.3 | 30.5 | 61 | 2 | Bueno |
-| 2005 | 2.11 | 3.99 | 3.56 | 25.2 | 61 | 2 | Bueno |
+| 2025 | 0.56 | 3.81 | 2.67 | 43.1 | 44 | 1 | Excelente |
+| 2024 | 1.35 | 4.72 | 2.68 | 45.5 | 48 | 1 | Excelente |
+| 2022 | 3.71 | 7.9 | 3.26 | 39.2 | 50 | 1 | Excelente |
+| 2006 | 4.81 | 3.63 | 3.57 | 22.1 | 50 | 1 | Excelente |
+| 2016 | 1.77 | 2.82 | 3.85 | 38.9 | 51 | 1 | Excelente |
+| 2015 | 2.7 | 2.72 | 4.31 | 36.3 | 51 | 1 | Excelente |
+| 2023 | 3.11 | 5.53 | 2.77 | 30.7 | 54 | 1 | Excelente |
+| 2018 | 1.97 | 4.9 | 3.28 | 37.9 | 56 | 1 | Excelente |
+| 2021 | 6.05 | 5.69 | 4.02 | 35.6 | 57 | 1 | Excelente |
+| 2000 | 5.03 | 9.49 | 2.65 | 18.4 | 59 | 2 | Bueno |
+| 2007 | 2.08 | 3.97 | 3.63 | 31 | 59 | 2 | Bueno |
+| 2005 | 2.11 | 3.99 | 3.56 | 25.2 | 64 | 2 | Bueno |
 
 ---
 
@@ -656,21 +687,21 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| PIB per cápita | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
-| Inflación | % anual | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | PIB nominal | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Exportaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Importaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
-| Población | habitantes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| PIB per cápita | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| Inflación | % anual | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Crecimiento del PIB | % anual | 1961 | 2025 | 65 anios | 65 | 100.0 % | OK |
 | Deuda externa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Emisiones CO₂ per cápita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
-| Inversión extranjera directa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
+| Inversión extranjera directa | USD corrientes | 1970 | 2025 | 56 anios | 56 | 100.0 % | OK |
 | Tasa de desempleo | % de la PEA | 1991 | 2025 | 35 anios | 35 | 100.0 % | OK |
-| Tasa de interés real | % anual | 1993 | 2025 | 33 anios | 33 | 100.0 % | OK |
+| Gasto en salud | % del PIB | 2000 | 2023 | 24 anios | 24 | 100.0 % | OK |
 | Gasto público en educación | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
-| Índice de Gini | 0-100 | — | — | — | 1 | — | Serie corta o muy fragmentada |
-| Gasto en salud | % del PIB | — | — | — | 1 | — | Serie corta o muy fragmentada |
+| Índice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
+| Tasa de interés real | % anual | — | — | — | 1 | — | Serie corta o muy fragmentada |
+| Población | habitantes | — | — | — | 1 | — | Serie corta o muy fragmentada |
 
 ---
 
