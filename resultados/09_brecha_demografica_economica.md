@@ -90,7 +90,7 @@ ORDER BY anio DESC;
 	-(TIMESTAMP WITH TIME ZONE, TIMESTAMP WITH TIME ZONE) -> INTERVAL
 
 
-LINE 15:         ROUND(((poblacion - pob_prev) / pob_prev) * 100, 3)        AS crec_pob_pct,
-                                   ^ |
+LINE 16:         ROUND(((pib_nominal_usd - pib_prev) / pib_prev) * 100, 2)  AS crec_pib_pct
+                                         ^ |
 
 ---

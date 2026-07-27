@@ -23,18 +23,17 @@ GROUP BY ROLLUP(FLOOR(anio / 10) * 10)
 ORDER BY decada NULLS LAST;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 8 filas:
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '/(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
-	Candidate functions:
-	/(FLOAT, FLOAT) -> FLOAT
-	/(DOUBLE, DOUBLE) -> DOUBLE
-	/(INTERVAL, DOUBLE) -> INTERVAL
-
-
-LINE 8:     ROUND(MAX(poblacion) / 1e6, 1)                                              ...
-                                 ^ |
+| decada | pib_crecimiento_prom | inflacion_prom | desempleo_prom | ied_promedio_bn_usd | ratio_export_import | poblacion_fin_decada_mn | anios_con_datos |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1960.0s | 6.84 | 2.72 | — | — | 0.794 | 49.2 | 10 |
+| 1970.0s | 6.43 | 14.68 | — | 0.53 | 0.871 | 65.6 | 10 |
+| 1980.0s | 2.21 | 69.05 | — | 2.39 | 1.326 | 81.2 | 10 |
+| 1990.0s | 3.65 | 20.41 | 4.15 | 8.54 | 0.918 | 97.1 | 10 |
+| 2000.0s | 1.27 | 5.21 | 3.57 | 23.96 | 0.938 | 112 | 10 |
+| 2010.0s | 2.33 | 3.96 | 4.34 | 32.81 | 0.959 | 125.8 | 10 |
+| 2020.0s | 1.07 | 5.17 | 3.31 | 37.6 | 0.976 | 131.9 | 6 |
+| — | 3.49 | 18.05 | 3.89 | 16.21 | 0.968 | 131.9 | 66 |
 
 ---
