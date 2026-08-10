@@ -31,18 +31,24 @@ WHERE anio >= 1990
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 35 filas (mostrando primeras 15):
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '/(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
-	Candidate functions:
-	/(FLOAT, FLOAT) -> FLOAT
-	/(DOUBLE, DOUBLE) -> DOUBLE
-	/(INTERVAL, DOUBLE) -> INTERVAL
-
-
-LINE 13:     ROUND(deuda_externa_usd / 1e9, 1)                  AS deuda_bn,
-                                     ^ |
+| anio | deuda_bn | ied_anual_bn | ied_acumulada_bn | ratio_deuda_ied_anual | ratio_deuda_ied_acumulada |
+| --- | --- | --- | --- | --- | --- |
+| 2024 | 591.3 | 45.5 | 864.8 | 13 | 0.68 |
+| 2023 | 596 | 30.7 | 819.4 | 19.4 | 0.73 |
+| 2022 | 585.9 | 39.2 | 788.7 | 14.9 | 0.74 |
+| 2021 | 601.5 | 35.6 | 749.5 | 16.9 | 0.8 |
+| 2020 | 616.7 | 31.5 | 713.9 | 19.5 | 0.86 |
+| 2019 | 617.4 | 29.9 | 682.3 | 20.6 | 0.9 |
+| 2018 | 602 | 37.9 | 652.4 | 15.9 | 0.92 |
+| 2017 | 578.6 | 33.1 | 614.5 | 17.5 | 0.94 |
+| 2016 | 544.8 | 38.9 | 581.4 | 14 | 0.94 |
+| 2015 | 538 | 36.3 | 542.5 | 14.8 | 0.99 |
+| 2014 | 544.2 | 28.4 | 506.2 | 19.1 | 1.08 |
+| 2013 | 504.1 | 50.9 | 477.8 | 9.9 | 1.06 |
+| 2012 | 433 | 18.2 | 426.8 | 23.7 | 1.01 |
+| 2011 | 351.7 | 23.9 | 408.6 | 14.7 | 0.86 |
+| 2010 | 312.3 | 30.5 | 384.7 | 10.2 | 0.81 |
 
 ---

@@ -43,28 +43,24 @@ LEFT JOIN hace_10      h ON h.indicador = c.columna
 ORDER BY c.columna;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 15 filas:
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types 'abs(VARCHAR)'. You might need to add explicit type casts.
-	Candidate functions:
-	abs(TINYINT) -> TINYINT
-	abs(SMALLINT) -> SMALLINT
-	abs(INTEGER) -> INTEGER
-	abs(BIGINT) -> BIGINT
-	abs(HUGEINT) -> HUGEINT
-	abs(FLOAT) -> FLOAT
-	abs(DOUBLE) -> DOUBLE
-	abs(DECIMAL) -> DECIMAL
-	abs(UTINYINT) -> UTINYINT
-	abs(USMALLINT) -> USMALLINT
-	abs(UINTEGER) -> UINTEGER
-	abs(UBIGINT) -> UBIGINT
-	abs(UHUGEINT) -> UHUGEINT
-
-
-LINE 22:         WHEN ABS(u.valor) >= 1e9  THEN ROUND(u.valor / 1e9,  2)  || ...
-                      ^ |
+| indicador | unidad | anio_ultimo | ultimo_valor | cambio_10a |
+| --- | --- | --- | --- | --- |
+| Emisiones CO₂ per cápita | toneladas | 2024 | 3.64 | -10.2 % |
+| Tasa de desempleo | % de la PEA | 2025 | 2.67 | -38.0 % |
+| Deuda externa | USD corrientes | 2024 | 591.26 bn | 9.9 % |
+| Exportaciones | USD corrientes | 2025 | 726.56 bn | 75.3 % |
+| Gasto público en educación | % del PIB | 2022 | 4.06 | -19.6 % |
+| Gasto en salud | % del PIB | 2023 | 5.5 | -0.4 % |
+| Índice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
+| Inversión extranjera directa | USD corrientes | 2025 | 43.09 bn | 18.9 % |
+| Importaciones | USD corrientes | 2025 | 738.16 bn | 67.8 % |
+| Inflación | % anual | 2025 | 3.81 | 39.9 % |
+| Crecimiento del PIB | % anual | 2025 | 0.56 | -79.2 % |
+| PIB nominal | USD corrientes | 2025 | 1832.64 bn | 51.0 % |
+| PIB per cápita | USD corrientes | 2025 | 13889.0 | 38.6 % |
+| Población | habitantes | 2025 | 131.95 mn | 9.0 % |
+| Tasa de interés real | % anual | 2025 | 3.97 | 1817.8 % |
 
 ---

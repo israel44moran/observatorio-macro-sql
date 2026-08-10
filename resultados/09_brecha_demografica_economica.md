@@ -43,54 +43,24 @@ WHERE anio >= 2000
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 26 filas (mostrando primeras 15):
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '-(VARCHAR, VARCHAR)'. You might need to add explicit type casts.
-	Candidate functions:
-	-(TINYINT) -> TINYINT
-	-(TINYINT, TINYINT) -> TINYINT
-	-(SMALLINT) -> SMALLINT
-	-(SMALLINT, SMALLINT) -> SMALLINT
-	-(INTEGER) -> INTEGER
-	-(INTEGER, INTEGER) -> INTEGER
-	-(BIGINT) -> BIGINT
-	-(BIGINT, BIGINT) -> BIGINT
-	-(HUGEINT) -> HUGEINT
-	-(HUGEINT, HUGEINT) -> HUGEINT
-	-(FLOAT) -> FLOAT
-	-(FLOAT, FLOAT) -> FLOAT
-	-(DOUBLE) -> DOUBLE
-	-(DOUBLE, DOUBLE) -> DOUBLE
-	-(DECIMAL) -> DECIMAL
-	-(DECIMAL, DECIMAL) -> DECIMAL
-	-(UTINYINT) -> UTINYINT
-	-(UTINYINT, UTINYINT) -> UTINYINT
-	-(USMALLINT) -> USMALLINT
-	-(USMALLINT, USMALLINT) -> USMALLINT
-	-(UINTEGER) -> UINTEGER
-	-(UINTEGER, UINTEGER) -> UINTEGER
-	-(UBIGINT) -> UBIGINT
-	-(UBIGINT, UBIGINT) -> UBIGINT
-	-(UHUGEINT) -> UHUGEINT
-	-(UHUGEINT, UHUGEINT) -> UHUGEINT
-	-(BIGNUM) -> BIGNUM
-	-(BIGNUM, BIGNUM) -> BIGNUM
-	-(DATE, DATE) -> BIGINT
-	-(DATE, INTEGER) -> DATE
-	-(TIMESTAMP, TIMESTAMP) -> INTERVAL
-	-(INTERVAL, INTERVAL) -> INTERVAL
-	-(DATE, INTERVAL) -> TIMESTAMP
-	-(TIME, INTERVAL) -> TIME
-	-(TIMESTAMP, INTERVAL) -> TIMESTAMP
-	-(TIME WITH TIME ZONE, INTERVAL) -> TIME WITH TIME ZONE
-	-(INTERVAL) -> INTERVAL
-	-(TIMESTAMP WITH TIME ZONE, INTERVAL) -> TIMESTAMP WITH TIME ZONE
-	-(TIMESTAMP WITH TIME ZONE, TIMESTAMP WITH TIME ZONE) -> INTERVAL
-
-
-LINE 16:         ROUND(((pib_nominal_usd - pib_prev) / pib_prev) * 100, 2)  AS crec_pib_pct
-                                         ^ |
+| anio | crec_pob_pct | crec_pib_pct | brecha | interpretacion |
+| --- | --- | --- | --- | --- |
+| 2025 | 0.83 | 0.12 | -0.71 | Estancamiento |
+| 2024 | 0.864 | 2.01 | 1.15 | Mejora marginal |
+| 2023 | 0.876 | 22.32 | 21.44 | Mejora fuerte del bienestar |
+| 2022 | 0.756 | 11.42 | 10.66 | Mejora fuerte del bienestar |
+| 2021 | 0.67 | 17.44 | 16.77 | Mejora fuerte del bienestar |
+| 2020 | 0.824 | -14.04 | -14.86 | Retroceso real |
+| 2019 | 0.955 | 3.81 | 2.86 | Mejora marginal |
+| 2018 | 0.951 | 5.51 | 4.56 | Mejora fuerte del bienestar |
+| 2017 | 0.94 | 7.06 | 6.12 | Mejora fuerte del bienestar |
+| 2016 | 0.974 | -8.33 | -9.3 | Retroceso real |
+| 2015 | 1.075 | -11.08 | -12.16 | Retroceso real |
+| 2014 | 1.217 | 2.79 | 1.57 | Mejora marginal |
+| 2013 | 1.306 | 5.76 | 4.45 | Mejora fuerte del bienestar |
+| 2012 | 1.366 | 2.12 | 0.75 | Mejora marginal |
+| 2011 | 1.425 | 11.18 | 9.75 | Mejora fuerte del bienestar |
 
 ---

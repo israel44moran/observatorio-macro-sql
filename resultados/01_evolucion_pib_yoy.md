@@ -27,18 +27,24 @@ WHERE antiguedad <= 15
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 15 filas:
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '/(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
-	Candidate functions:
-	/(FLOAT, FLOAT) -> FLOAT
-	/(DOUBLE, DOUBLE) -> DOUBLE
-	/(INTERVAL, DOUBLE) -> INTERVAL
-
-
-LINE 12:     ROUND(pib_actual / 1e9, 1)                                            AS...
-                              ^ |
+| anio | pib_billones_usd | delta_billones | variacion_pct |
+| --- | --- | --- | --- |
+| 2025 | 1,832.6 | 2.2 | 0.12 |
+| 2024 | 1,830.5 | 36.1 | 2.01 |
+| 2023 | 1,794.4 | 327.5 | 22.32 |
+| 2022 | 1,466.9 | 150.4 | 11.42 |
+| 2021 | 1,316.6 | 195.5 | 17.44 |
+| 2020 | 1,121.1 | -183 | -14.04 |
+| 2019 | 1,304.1 | 47.8 | 3.81 |
+| 2018 | 1,256.3 | 65.6 | 5.51 |
+| 2017 | 1,190.7 | 78.5 | 7.06 |
+| 2016 | 1,112.2 | -101.1 | -8.33 |
+| 2015 | 1,213.3 | -151.2 | -11.08 |
+| 2014 | 1,364.5 | 37.1 | 2.79 |
+| 2013 | 1,327.4 | 72.3 | 5.76 |
+| 2012 | 1,255.1 | 26.1 | 2.12 |
+| 2011 | 1,229 | 123.6 | 11.18 |
 
 ---

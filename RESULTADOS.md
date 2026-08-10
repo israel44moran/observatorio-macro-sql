@@ -34,19 +34,25 @@ WHERE antiguedad <= 15
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 15 filas:
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '/(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
-	Candidate functions:
-	/(FLOAT, FLOAT) -> FLOAT
-	/(DOUBLE, DOUBLE) -> DOUBLE
-	/(INTERVAL, DOUBLE) -> INTERVAL
-
-
-LINE 12:     ROUND(pib_actual / 1e9, 1)                                            AS...
-                              ^ |
+| anio | pib_billones_usd | delta_billones | variacion_pct |
+| --- | --- | --- | --- |
+| 2025 | 1,832.6 | 2.2 | 0.12 |
+| 2024 | 1,830.5 | 36.1 | 2.01 |
+| 2023 | 1,794.4 | 327.5 | 22.32 |
+| 2022 | 1,466.9 | 150.4 | 11.42 |
+| 2021 | 1,316.6 | 195.5 | 17.44 |
+| 2020 | 1,121.1 | -183 | -14.04 |
+| 2019 | 1,304.1 | 47.8 | 3.81 |
+| 2018 | 1,256.3 | 65.6 | 5.51 |
+| 2017 | 1,190.7 | 78.5 | 7.06 |
+| 2016 | 1,112.2 | -101.1 | -8.33 |
+| 2015 | 1,213.3 | -151.2 | -11.08 |
+| 2014 | 1,364.5 | 37.1 | 2.79 |
+| 2013 | 1,327.4 | 72.3 | 5.76 |
+| 2012 | 1,255.1 | 26.1 | 2.12 |
+| 2011 | 1,229 | 123.6 | 11.18 |
 
 ---
 
@@ -446,55 +452,25 @@ WHERE anio >= 2000
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 26 filas (mostrando primeras 15):
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '-(VARCHAR, VARCHAR)'. You might need to add explicit type casts.
-	Candidate functions:
-	-(TINYINT) -> TINYINT
-	-(TINYINT, TINYINT) -> TINYINT
-	-(SMALLINT) -> SMALLINT
-	-(SMALLINT, SMALLINT) -> SMALLINT
-	-(INTEGER) -> INTEGER
-	-(INTEGER, INTEGER) -> INTEGER
-	-(BIGINT) -> BIGINT
-	-(BIGINT, BIGINT) -> BIGINT
-	-(HUGEINT) -> HUGEINT
-	-(HUGEINT, HUGEINT) -> HUGEINT
-	-(FLOAT) -> FLOAT
-	-(FLOAT, FLOAT) -> FLOAT
-	-(DOUBLE) -> DOUBLE
-	-(DOUBLE, DOUBLE) -> DOUBLE
-	-(DECIMAL) -> DECIMAL
-	-(DECIMAL, DECIMAL) -> DECIMAL
-	-(UTINYINT) -> UTINYINT
-	-(UTINYINT, UTINYINT) -> UTINYINT
-	-(USMALLINT) -> USMALLINT
-	-(USMALLINT, USMALLINT) -> USMALLINT
-	-(UINTEGER) -> UINTEGER
-	-(UINTEGER, UINTEGER) -> UINTEGER
-	-(UBIGINT) -> UBIGINT
-	-(UBIGINT, UBIGINT) -> UBIGINT
-	-(UHUGEINT) -> UHUGEINT
-	-(UHUGEINT, UHUGEINT) -> UHUGEINT
-	-(BIGNUM) -> BIGNUM
-	-(BIGNUM, BIGNUM) -> BIGNUM
-	-(DATE, DATE) -> BIGINT
-	-(DATE, INTEGER) -> DATE
-	-(TIMESTAMP, TIMESTAMP) -> INTERVAL
-	-(INTERVAL, INTERVAL) -> INTERVAL
-	-(DATE, INTERVAL) -> TIMESTAMP
-	-(TIME, INTERVAL) -> TIME
-	-(TIMESTAMP, INTERVAL) -> TIMESTAMP
-	-(TIME WITH TIME ZONE, INTERVAL) -> TIME WITH TIME ZONE
-	-(INTERVAL) -> INTERVAL
-	-(TIMESTAMP WITH TIME ZONE, INTERVAL) -> TIMESTAMP WITH TIME ZONE
-	-(TIMESTAMP WITH TIME ZONE, TIMESTAMP WITH TIME ZONE) -> INTERVAL
-
-
-LINE 16:         ROUND(((pib_nominal_usd - pib_prev) / pib_prev) * 100, 2)  AS crec_pib_pct
-                                         ^ |
+| anio | crec_pob_pct | crec_pib_pct | brecha | interpretacion |
+| --- | --- | --- | --- | --- |
+| 2025 | 0.83 | 0.12 | -0.71 | Estancamiento |
+| 2024 | 0.864 | 2.01 | 1.15 | Mejora marginal |
+| 2023 | 0.876 | 22.32 | 21.44 | Mejora fuerte del bienestar |
+| 2022 | 0.756 | 11.42 | 10.66 | Mejora fuerte del bienestar |
+| 2021 | 0.67 | 17.44 | 16.77 | Mejora fuerte del bienestar |
+| 2020 | 0.824 | -14.04 | -14.86 | Retroceso real |
+| 2019 | 0.955 | 3.81 | 2.86 | Mejora marginal |
+| 2018 | 0.951 | 5.51 | 4.56 | Mejora fuerte del bienestar |
+| 2017 | 0.94 | 7.06 | 6.12 | Mejora fuerte del bienestar |
+| 2016 | 0.974 | -8.33 | -9.3 | Retroceso real |
+| 2015 | 1.075 | -11.08 | -12.16 | Retroceso real |
+| 2014 | 1.217 | 2.79 | 1.57 | Mejora marginal |
+| 2013 | 1.306 | 5.76 | 4.45 | Mejora fuerte del bienestar |
+| 2012 | 1.366 | 2.12 | 0.75 | Mejora marginal |
+| 2011 | 1.425 | 11.18 | 9.75 | Mejora fuerte del bienestar |
 
 ---
 
@@ -680,21 +656,21 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| PIB per cápita | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| Inflación | % anual | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| PIB nominal | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Exportaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Importaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Población | habitantes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
-| Inflación | % anual | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
-| PIB per cápita | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Crecimiento del PIB | % anual | 1961 | 2025 | 65 anios | 65 | 100.0 % | OK |
-| Inversión extranjera directa | USD corrientes | 1970 | 2025 | 56 anios | 56 | 100.0 % | OK |
+| Deuda externa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Emisiones CO₂ per cápita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
+| Inversión extranjera directa | USD corrientes | 1970 | 2025 | 56 anios | 56 | 100.0 % | OK |
 | Tasa de desempleo | % de la PEA | 1991 | 2025 | 35 anios | 35 | 100.0 % | OK |
 | Tasa de interés real | % anual | 1993 | 2025 | 33 anios | 33 | 100.0 % | OK |
 | Gasto en salud | % del PIB | 2000 | 2023 | 24 anios | 24 | 100.0 % | OK |
 | Gasto público en educación | % del PIB | 1989 | 2022 | 34 anios | 30 | 88.2 % | Cobertura parcial |
 | Índice de Gini | 0-100 | 1984 | 2024 | 41 anios | 20 | 48.8 % | Serie corta o muy fragmentada |
-| Deuda externa | USD corrientes | — | — | — | 1 | — | Serie corta o muy fragmentada |
-| PIB nominal | USD corrientes | — | — | — | 1 | — | Serie corta o muy fragmentada |
 
 ---
 
@@ -731,19 +707,25 @@ WHERE anio >= 1990
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 35 filas (mostrando primeras 15):
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '/(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
-	Candidate functions:
-	/(FLOAT, FLOAT) -> FLOAT
-	/(DOUBLE, DOUBLE) -> DOUBLE
-	/(INTERVAL, DOUBLE) -> INTERVAL
-
-
-LINE 13:     ROUND(deuda_externa_usd / 1e9, 1)                  AS deuda_bn,
-                                     ^ |
+| anio | deuda_bn | ied_anual_bn | ied_acumulada_bn | ratio_deuda_ied_anual | ratio_deuda_ied_acumulada |
+| --- | --- | --- | --- | --- | --- |
+| 2024 | 591.3 | 45.5 | 864.8 | 13 | 0.68 |
+| 2023 | 596 | 30.7 | 819.4 | 19.4 | 0.73 |
+| 2022 | 585.9 | 39.2 | 788.7 | 14.9 | 0.74 |
+| 2021 | 601.5 | 35.6 | 749.5 | 16.9 | 0.8 |
+| 2020 | 616.7 | 31.5 | 713.9 | 19.5 | 0.86 |
+| 2019 | 617.4 | 29.9 | 682.3 | 20.6 | 0.9 |
+| 2018 | 602 | 37.9 | 652.4 | 15.9 | 0.92 |
+| 2017 | 578.6 | 33.1 | 614.5 | 17.5 | 0.94 |
+| 2016 | 544.8 | 38.9 | 581.4 | 14 | 0.94 |
+| 2015 | 538 | 36.3 | 542.5 | 14.8 | 0.99 |
+| 2014 | 544.2 | 28.4 | 506.2 | 19.1 | 1.08 |
+| 2013 | 504.1 | 50.9 | 477.8 | 9.9 | 1.06 |
+| 2012 | 433 | 18.2 | 426.8 | 23.7 | 1.01 |
+| 2011 | 351.7 | 23.9 | 408.6 | 14.7 | 0.86 |
+| 2010 | 312.3 | 30.5 | 384.7 | 10.2 | 0.81 |
 
 ---
 
@@ -846,28 +828,24 @@ LEFT JOIN hace_10      h ON h.indicador = c.columna
 ORDER BY c.columna;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 15 filas:
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types 'abs(VARCHAR)'. You might need to add explicit type casts.
-	Candidate functions:
-	abs(TINYINT) -> TINYINT
-	abs(SMALLINT) -> SMALLINT
-	abs(INTEGER) -> INTEGER
-	abs(BIGINT) -> BIGINT
-	abs(HUGEINT) -> HUGEINT
-	abs(FLOAT) -> FLOAT
-	abs(DOUBLE) -> DOUBLE
-	abs(DECIMAL) -> DECIMAL
-	abs(UTINYINT) -> UTINYINT
-	abs(USMALLINT) -> USMALLINT
-	abs(UINTEGER) -> UINTEGER
-	abs(UBIGINT) -> UBIGINT
-	abs(UHUGEINT) -> UHUGEINT
-
-
-LINE 22:         WHEN ABS(u.valor) >= 1e9  THEN ROUND(u.valor / 1e9,  2)  || ...
-                      ^ |
+| indicador | unidad | anio_ultimo | ultimo_valor | cambio_10a |
+| --- | --- | --- | --- | --- |
+| Emisiones CO₂ per cápita | toneladas | 2024 | 3.64 | -10.2 % |
+| Tasa de desempleo | % de la PEA | 2025 | 2.67 | -38.0 % |
+| Deuda externa | USD corrientes | 2024 | 591.26 bn | 9.9 % |
+| Exportaciones | USD corrientes | 2025 | 726.56 bn | 75.3 % |
+| Gasto público en educación | % del PIB | 2022 | 4.06 | -19.6 % |
+| Gasto en salud | % del PIB | 2023 | 5.5 | -0.4 % |
+| Índice de Gini | 0-100 | 2024 | 42.6 | -12.9 % |
+| Inversión extranjera directa | USD corrientes | 2025 | 43.09 bn | 18.9 % |
+| Importaciones | USD corrientes | 2025 | 738.16 bn | 67.8 % |
+| Inflación | % anual | 2025 | 3.81 | 39.9 % |
+| Crecimiento del PIB | % anual | 2025 | 0.56 | -79.2 % |
+| PIB nominal | USD corrientes | 2025 | 1832.64 bn | 51.0 % |
+| PIB per cápita | USD corrientes | 2025 | 13889.0 | 38.6 % |
+| Población | habitantes | 2025 | 131.95 mn | 9.0 % |
+| Tasa de interés real | % anual | 2025 | 3.97 | 1817.8 % |
 
 ---
