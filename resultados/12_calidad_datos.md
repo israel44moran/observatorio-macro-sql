@@ -44,8 +44,8 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| PIB per cápita | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Inflación | % anual | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| PIB per cápita | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | PIB nominal | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Exportaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Importaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
