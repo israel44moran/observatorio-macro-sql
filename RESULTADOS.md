@@ -656,12 +656,12 @@ ORDER BY completitud_pct DESC, anio_inicio;
 
 | nombre | unidad | anio_inicio | anio_fin | rango | observaciones | completitud | diagnostico |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Inflación | % anual | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
-| PIB per cápita | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | PIB nominal | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Exportaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Importaciones | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Población | habitantes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| PIB per cápita | USD corrientes | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
+| Inflación | % anual | 1960 | 2025 | 66 anios | 66 | 100.0 % | OK |
 | Crecimiento del PIB | % anual | 1961 | 2025 | 65 anios | 65 | 100.0 % | OK |
 | Deuda externa | USD corrientes | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
 | Emisiones CO₂ per cápita | toneladas | 1970 | 2024 | 55 anios | 55 | 100.0 % | OK |
