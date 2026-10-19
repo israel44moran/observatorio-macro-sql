@@ -51,18 +51,21 @@ ORDER BY score
 LIMIT 12;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 12 filas:
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types '/(VARCHAR, DOUBLE)'. You might need to add explicit type casts.
-	Candidate functions:
-	/(FLOAT, FLOAT) -> FLOAT
-	/(DOUBLE, DOUBLE) -> DOUBLE
-	/(INTERVAL, DOUBLE) -> INTERVAL
-
-
-LINE 7:         ROUND(ied_usd / 1e9, 1)       AS ied_bn,
-                              ^ |
+| anio | pib_pct | inflacion | desempleo | ied_bn | score | cuartil_global | clasificacion |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 2025 | 0.56 | 3.81 | 2.67 | 44.6 | 44 | 1 | Excelente |
+| 2024 | 1.35 | 4.72 | 2.68 | 45.5 | 48 | 1 | Excelente |
+| 2022 | 3.71 | 7.9 | 3.26 | 39.2 | 50 | 1 | Excelente |
+| 2006 | 4.81 | 3.63 | 3.57 | 22.1 | 50 | 1 | Excelente |
+| 2016 | 1.77 | 2.82 | 3.85 | 38.9 | 51 | 1 | Excelente |
+| 2015 | 2.7 | 2.72 | 4.31 | 36.3 | 51 | 1 | Excelente |
+| 2023 | 3.11 | 5.53 | 2.77 | 30.7 | 54 | 1 | Excelente |
+| 2018 | 1.97 | 4.9 | 3.28 | 37.9 | 56 | 1 | Excelente |
+| 2021 | 6.05 | 5.69 | 4.02 | 35.6 | 57 | 1 | Excelente |
+| 2000 | 5.03 | 9.49 | 2.65 | 18.4 | 59 | 2 | Bueno |
+| 2007 | 2.08 | 3.97 | 3.63 | 31 | 59 | 2 | Bueno |
+| 2005 | 2.11 | 3.99 | 3.56 | 25.2 | 64 | 2 | Bueno |
 
 ---

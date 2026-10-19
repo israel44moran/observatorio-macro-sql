@@ -31,23 +31,24 @@ WHERE anio >= 1990
 ORDER BY anio DESC;
 ```
 
-**Resultado** — 1 filas:
+**Resultado** — 35 filas (mostrando primeras 15):
 
-| ERROR |
-| --- |
-| Binder Error: No function matches the given name and argument types 'sum(VARCHAR)'. You might need to add explicit type casts.
-	Candidate functions:
-	sum(DECIMAL) -> DECIMAL
-	sum(BOOLEAN) -> HUGEINT
-	sum(SMALLINT) -> HUGEINT
-	sum(INTEGER) -> HUGEINT
-	sum(BIGINT) -> HUGEINT
-	sum(HUGEINT) -> HUGEINT
-	sum(DOUBLE) -> DOUBLE
-	sum(BIGNUM) -> BIGNUM
-
-
-LINE 6:         SUM(ied_usd) OVER (ORDER BY anio)              AS ied_acumu...
-                ^ |
+| anio | deuda_bn | ied_anual_bn | ied_acumulada_bn | ratio_deuda_ied_anual | ratio_deuda_ied_acumulada |
+| --- | --- | --- | --- | --- | --- |
+| 2024 | 591.3 | 45.5 | 865.2 | 13 | 0.68 |
+| 2023 | 596 | 30.7 | 819.7 | 19.4 | 0.73 |
+| 2022 | 585.9 | 39.2 | 789 | 14.9 | 0.74 |
+| 2021 | 601.5 | 35.6 | 749.8 | 16.9 | 0.8 |
+| 2020 | 616.7 | 31.6 | 714.1 | 19.5 | 0.86 |
+| 2019 | 617.4 | 30.1 | 682.5 | 20.5 | 0.9 |
+| 2018 | 602 | 37.9 | 652.4 | 15.9 | 0.92 |
+| 2017 | 578.6 | 33.2 | 614.5 | 17.4 | 0.94 |
+| 2016 | 544.8 | 38.9 | 581.4 | 14 | 0.94 |
+| 2015 | 538 | 36.3 | 542.5 | 14.8 | 0.99 |
+| 2014 | 544.2 | 28.4 | 506.2 | 19.1 | 1.07 |
+| 2013 | 504.1 | 50.9 | 477.8 | 9.9 | 1.06 |
+| 2012 | 433 | 18.2 | 426.8 | 23.7 | 1.01 |
+| 2011 | 351.7 | 23.9 | 408.6 | 14.7 | 0.86 |
+| 2010 | 312.3 | 30.5 | 384.7 | 10.2 | 0.81 |
 
 ---
